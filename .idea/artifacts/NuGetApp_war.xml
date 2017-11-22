@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="NuGetApp:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/NuGetApp_war</output-path>
+    <root id="archive" name="NuGetApp_war.war">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="JPA 2.0-2.0" />
+          <element id="library" level="project" name="Java EE 6-Java EE 6" />
+          <element id="file-copy" path="F:/org.eclipse.persistence.jpa-2.5.0.jar" />
+          <element id="library" level="project" name="JBoss Weld-2.0.3" />
+        </element>
+      </element>
+      <element id="artifact" artifact-name="NuGetApp:war exploded" />
+    </root>
+  </artifact>
+</component>

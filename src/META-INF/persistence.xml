@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="NuGetPu" transaction-type="JTA">
+
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <jta-data-source>jdbc/NuGetDS</jta-data-source>
+    <class>com.igor.z.entity.User</class>
+    <class>com.igor.z.entity.Group</class>
+        <properties>
+
+            <!--  will first drop the existing table, and then create the new table. Use for development
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+            -->
+        </properties>
+</persistence-unit>
+</persistence>

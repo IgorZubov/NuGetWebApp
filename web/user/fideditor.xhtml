@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Feed editor</title>
+</h:head>
+<h:body style="background-color: rgba(32,32,32,0.33)">
+    <h:form>
+        <h:commandLink action="#{loginController.logout}" value="Logout" />
+    </h:form>
+    <h:form>
+        <h:panelGrid id = "panel" columns = "2"
+                     cellpadding = "2" cellspacing = "1">
+            <h:outputLabel for="feedName">Feed name:</h:outputLabel>
+            <h:inputText id="feedName" value="#{feedEditorController.newName}"></h:inputText>
+            <h:outputLabel for="feedSource">Feed source:</h:outputLabel>
+            <h:inputText id="feedSource" value="#{feedEditorController.newSource}"></h:inputText>
+        </h:panelGrid>
+        <h:panelGrid id = "pack" columns = "2"
+                     cellpadding = "2" cellspacing = "1">
+            <h:commandButton action="#{feedEditorController.submit(feedEditorController.newName,
+                                            feedEditorController.newSource)}" value="Submit">
+            </h:commandButton>
+            <h:commandButton action="#{feedEditorController.cancel}" value="Go back"></h:commandButton>
+        </h:panelGrid>
+        <h:outputLabel id="errorMessage" value="#{feedEditorController.resultMessage}"></h:outputLabel>
+    </h:form>
+</h:body>
+</html>

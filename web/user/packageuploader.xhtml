@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Package creator</title>
+</h:head>
+<h:body style="background-color: rgba(32,32,32,0.33)">
+    <h:form>
+        <h:commandLink action="#{loginController.logout}" value="Logout" />
+    </h:form>
+    <h:form enctype="multipart/form-data">
+        <h:inputFile value="#{packageUploaderController.file}"
+                     style="width:250px; margin-left: 2px"
+                     required="true" requiredMessage="Please select file">
+            <f:validator validatorId="fileUploadValidator"/>
+        </h:inputFile>
+        <br />
+        <h:panelGrid columns = "2"
+                     cellpadding = "2" cellspacing = "1">
+            <h:outputLabel for="feeds" style="width:150px;">Select feed:</h:outputLabel>
+            <h:selectOneMenu id="feeds" value="#{packageUploaderController.selectedFeed}">
+                <f:selectItems value="#{packageUploaderController.feeds}" var="feed"
+                               itemLabel="#{feed.source}" itemValue="#{feed.source}"/>
+            </h:selectOneMenu>
+        </h:panelGrid>
+        <br />
+        <h:commandButton value="Add package" action="#{packageUploaderController.addPackage}"
+                         style="margin: 5px 2px;"/>
+    </h:form>
+    <h:form>
+        <h:commandButton action="#{packageUploaderController.cancel}" value="Go back"
+                         style="margin: 5px 2px;"/>
+        <br/>
+        <h:outputLabel value="#{packageUploaderController.resultMessage}" style="margin: 5px 2px;"></h:outputLabel>
+    </h:form>
+</h:body>
+</html>
