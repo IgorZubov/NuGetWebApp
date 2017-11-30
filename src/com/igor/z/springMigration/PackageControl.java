@@ -1,8 +1,12 @@
 package com.igor.z.springMigration;
 
 import com.igor.z.daos.JdbcFeedDao;
+import com.igor.z.daos.JdbcPackageDao;
+import com.igor.z.interfaces.IPackageUploaderModel;
 import com.igor.z.modelAttributes.FeedItem;
 import com.igor.z.modelAttributes.PackageItem;
+import com.igor.z.models.PackageUploaderModel;
+import com.igor.z.utils.NuGetCommandsWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -16,19 +20,17 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
 public class PackageControl {
 
-    private static String UPLOADED_FOLDER = "F://temp//";
-
     @Autowired
     private JdbcFeedDao feedDao;
+
+    @Autowired
+    private JdbcPackageDao packageDao;
 
     @Autowired
     @Qualifier("fileValidator")
@@ -53,27 +55,21 @@ public class PackageControl {
                              final RedirectAttributes redirectAttributes, BindingResult result) {
         packageItem.setFile(file);
         validator.validate(packageItem, result);
-        if (packageItem.getFile().isEmpty()) {
-            redirectAttributes.addFlashAttribute("css", "error");
-            redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
-            return "redirect:/user/feedmanager";
-        }
-
+        IPackageUploaderModel packageUploader = new PackageUploaderModel(packageDao);
+        String successMessage;
         try {
-
-            // Get the file and save it somewhere
-            byte[] bytes = packageItem.getFile().getBytes();
-            Path path = Paths.get(UPLOADED_FOLDER + packageItem.getFile().getOriginalFilename());
-            Files.write(path, bytes);
-
-            redirectAttributes.addFlashAttribute("message",
-                    "You successfully uploaded '" + packageItem.getFile().getOriginalFilename() + "'");
-
+            String uploadedPath = packageUploader.uploadPackageToTempFolder(packageItem.getFile());
+            successMessage= packageUploader.addPackageToFeed(uploadedPath, packageItem.getSource());
+            packageUploader.deleteTempFile(uploadedPath);
+            packageDao.findByAny("NuGet");
         } catch (IOException e) {
             e.printStackTrace();
+            redirectAttributes.addFlashAttribute("css", "error");
+            redirectAttributes.addFlashAttribute("msg", "Please select a file to upload");
+            return "redirect:/user/feedmanager";
         }
         redirectAttributes.addFlashAttribute("css", "success");
-        redirectAttributes.addFlashAttribute("message", "Package added successfully");
+        redirectAttributes.addFlashAttribute("msg", successMessage);
         return "redirect:/user/feedmanager";
     }
 }

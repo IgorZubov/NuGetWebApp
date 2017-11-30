@@ -1,8 +1,14 @@
 package com.igor.z.models;
 
+import com.igor.z.daos.PackageDao;
 import com.igor.z.interfaces.INuGetCommandsWrapper;
 import com.igor.z.interfaces.IPackageUploaderModel;
+import com.igor.z.interfaces.ISettingsReader;
+import com.igor.z.nugetImplementations.Nuget;
+import com.igor.z.nugetImplementations.NugetFactory;
+import com.igor.z.nugetImplementations.NugetImplementation;
 import com.igor.z.utils.SettingsReader;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.Part;
 import java.io.*;
@@ -11,19 +17,19 @@ import java.util.List;
 
 public class PackageUploaderModel implements IPackageUploaderModel {
 
-    private INuGetCommandsWrapper wrapper;
+    private Nuget nuget;
+    private PackageDao packageDao;
 
-    public PackageUploaderModel(INuGetCommandsWrapper nuGetCommandsWrapper){
-        wrapper = nuGetCommandsWrapper;
+    public PackageUploaderModel(PackageDao packageDao){
+        this.packageDao = packageDao;
+        ISettingsReader reader = new SettingsReader();
+        NugetImplementation impl = reader.getNuGetImplementation();
+        nuget = new NugetFactory().getNugetImplementation(impl);
     }
 
     @Override
     public String addPackageToFeed(String packagePath, String selectedFeed) {
-        List<String> result = new ArrayList<>();
-        wrapper.addPackageToFeed(packagePath, selectedFeed, result);
-        StringBuilder builder = new StringBuilder();
-        result.stream().forEach(line -> builder.append(line).append(" "));
-        return builder.toString();
+        return nuget.addPackageToSource(packagePath, selectedFeed, packageDao);
     }
 
     @Override
@@ -33,13 +39,12 @@ public class PackageUploaderModel implements IPackageUploaderModel {
     }
 
     @Override
-    public String uploadPackageToTempFolder(Part file) throws IOException {
+    public String uploadPackageToTempFolder(MultipartFile file) throws IOException {
         return WriteFileToServer(file);
     }
 
-    private String WriteFileToServer(Part file) throws IOException {
-
-        File outputFile = new File(getUploadDirectory() + File.separator + file.getSubmittedFileName());
+    private String WriteFileToServer(MultipartFile file) throws IOException {
+        File outputFile = new File(getUploadDirectory() + File.separator + file.getOriginalFilename());
         InputStream inputStream = null;
         OutputStream outputStream = null;
         try {

@@ -2,7 +2,7 @@
 <div class="container">
     <hr>
     <footer>
-        <p>&copy; Mkyong.com 2015</p>
+        <p>&copy; Two week app Inc. 2017</p>
     </footer>
 </div>
 

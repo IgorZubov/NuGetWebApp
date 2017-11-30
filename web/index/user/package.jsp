@@ -59,7 +59,7 @@
                 <label class="col-sm-2 control-label">Source</label>
                 <div class="col-sm-5">
                     <form:select path="source" class="form-control">
-                        <form:option value="NONE" label="--- Select ---" />
+                        <form:option value="" label="--- Select ---" />
                         <form:options items="${sourceList}" />
                     </form:select>
                     <form:errors path="source" class="control-label" />

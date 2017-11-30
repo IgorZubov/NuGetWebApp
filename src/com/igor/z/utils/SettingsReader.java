@@ -1,12 +1,14 @@
 package com.igor.z.utils;
 
 import com.igor.z.interfaces.ISettingsReader;
+import com.igor.z.nugetImplementations.NugetImplementation;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import javax.faces.context.FacesContext;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -16,8 +18,15 @@ import java.io.InputStream;
 public class SettingsReader implements ISettingsReader {
 
     public String getNuGetExecutablePath(){
-        InputStream content = FacesContext.getCurrentInstance().getExternalContext().
-                getResourceAsStream("/res/settings.xml");
+        Resource resource = new ClassPathResource("/res/settings.xml");
+        try {
+            InputStream resourceInputStream = resource.getInputStream();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        ClassLoader classLoader = getClass().getClassLoader();
+        InputStream content = classLoader.getResourceAsStream("/res/settings.xml");
         if (content != null){
             try {
                 Document doc = readDomDocument(content);
@@ -42,8 +51,8 @@ public class SettingsReader implements ISettingsReader {
     }
 
     public String getNuGetConfigPath(){
-        InputStream content = FacesContext.getCurrentInstance().getExternalContext().
-                getResourceAsStream("/res/settings.xml");
+        ClassLoader classLoader = getClass().getClassLoader();
+        InputStream content = classLoader.getResourceAsStream("/res/settings.xml");
         if (content != null){
             try {
                 Document doc = readDomDocument(content);
@@ -67,28 +76,33 @@ public class SettingsReader implements ISettingsReader {
     }
 
     public String getTmpUploadPath(){
-        InputStream content = FacesContext.getCurrentInstance().getExternalContext().
-                getResourceAsStream("/res/settings.xml");
-        if (content != null){
+        Resource resource = new ClassPathResource("/resources/settings.xml");
+        InputStream content = null;
+        try {
+            content = resource.getInputStream();
+            Document doc = readDomDocument(content);
+            String path = readPath("uploadTmpFolder", doc);
+            return path;
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        }finally {
             try {
-                Document doc = readDomDocument(content);
-                String path = readPath("uploadTmpFolder", doc);
-                return path;
-            } catch (ParserConfigurationException e) {
-                e.printStackTrace();
+                if (content != null)
+                    content.close();
             } catch (IOException e) {
                 e.printStackTrace();
-            } catch (SAXException e) {
-                e.printStackTrace();
-            }finally {
-                try {
-                    content.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
             }
         }
         return null;
+    }
+
+    @Override
+    public NugetImplementation getNuGetImplementation() {
+        return NugetImplementation.EMPTY_NUGET;
     }
 
     private String readPath(String nodeName, Document doc) {

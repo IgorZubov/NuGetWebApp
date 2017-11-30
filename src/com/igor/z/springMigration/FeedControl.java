@@ -45,9 +45,9 @@ public class FeedControl {
         }
         redirectAttributes.addFlashAttribute("css", "success");
         if(feed.isNew()){
-            redirectAttributes.addFlashAttribute("msg", "User added successfully!");
+            redirectAttributes.addFlashAttribute("msg", "Feed added successfully!");
         }else{
-            redirectAttributes.addFlashAttribute("msg", "User updated successfully!");
+            redirectAttributes.addFlashAttribute("msg", "Feed updated successfully!");
         }
         return "redirect:/user/feedmanager";
     }
