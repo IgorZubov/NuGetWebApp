@@ -1,17 +1,15 @@
 package com.igor.z.modelAttributes;
 
-import org.springframework.web.multipart.MultipartFile;
-
 public class PackageItem {
 
-    private MultipartFile file;
+    private Object file;
     private String source;
 
-    public MultipartFile getFile() {
+    public Object getFile() {
         return file;
     }
 
-    public void setFile(MultipartFile file) {
+    public void setFile(Object file) {
         this.file = file;
     }
 

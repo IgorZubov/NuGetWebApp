@@ -2,6 +2,7 @@ package com.igor.z.utils;
 
 import com.igor.z.interfaces.INuGetCommandsWrapper;
 import com.igor.z.interfaces.ISettingsReader;
+import com.igor.z.modelAttributes.FeedItem;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -40,8 +41,8 @@ public class NuGetCommandsWrapper implements INuGetCommandsWrapper {
     public int createNewFeed(FeedItem feed, List<String> returnMessage) {
         ProcessBuilder pb = new ProcessBuilder(
                 _nugetExecutablePath,
-                _feedCommands, _add, _name, feed.getName(),
-                _source, feed.getSource(), _config, _nugetConfigPath, _forceEnglish);
+                _feedCommands, _add, _name, feed.getFeedName(),
+                _source, feed.getFeedSource(), _config, _nugetConfigPath, _forceEnglish);
         int exitCode = safeExecutingNuGetCommand(returnMessage, pb);
         return exitCode;
     }
@@ -73,7 +74,9 @@ public class NuGetCommandsWrapper implements INuGetCommandsWrapper {
                 String line1 = iterator.next();
                 Matcher matcher = pattern.matcher(line1);
                 if (matcher.matches()) {
-                    FeedItem item = new FeedItem(matcher.group(1).trim(), iterator.next().trim());
+                    FeedItem item = new FeedItem();
+                    item.setFeedName(matcher.group(1).trim());
+                    item.setFeedSource(iterator.next().trim());
                     feedList.add(item);
                 }
             }
@@ -85,7 +88,7 @@ public class NuGetCommandsWrapper implements INuGetCommandsWrapper {
         returnMessage.clear();
         ProcessBuilder pb = new ProcessBuilder(
                 _nugetExecutablePath,
-                _feedCommands, _remove, _name, "\""+ feed.getName()+"\"", _config, _nugetConfigPath, _forceEnglish);
+                _feedCommands, _remove, _name, "\""+ feed.getFeedName()+"\"", _config, _nugetConfigPath, _forceEnglish);
         int exitCode = safeExecutingNuGetCommand(returnMessage, pb);
         return exitCode;
     }

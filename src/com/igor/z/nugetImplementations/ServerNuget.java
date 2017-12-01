@@ -2,13 +2,24 @@ package com.igor.z.nugetImplementations;
 
 import com.igor.z.daos.FeedDao;
 import com.igor.z.daos.PackageDao;
+import com.igor.z.interfaces.INuGetCommandsWrapper;
 import com.igor.z.modelAttributes.FeedItem;
 import com.igor.z.springutils.NuGetPackageInfo;
 import com.igor.z.springutils.PackageInfoReader;
 
 import java.util.List;
 
-public class EmptyNuget implements Nuget {
+public class ServerNuget implements Nuget {
+
+    private INuGetCommandsWrapper wrapper;
+
+    public ServerNuget(INuGetCommandsWrapper wrapper) {
+        this.wrapper = wrapper;
+    }
+
+    //TODO: need some admin tool to sync app with remote feed
+
+    //Feed added only to app, it should exists in somewhere in world
     @Override
     public String addFeedSource(FeedDao feedDao, FeedItem feedItem) {
         return feedDao.insert(feedItem);

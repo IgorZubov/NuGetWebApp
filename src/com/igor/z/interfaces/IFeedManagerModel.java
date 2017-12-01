@@ -1,11 +1,11 @@
 package com.igor.z.interfaces;
 
-import com.igor.z.utils.FeedItem;
+import com.igor.z.modelAttributes.FeedItem;
 
 import java.util.List;
 
 public interface IFeedManagerModel {
-    String addFeed(FeedItem feed);
-    String removeFeed(FeedItem feed);
+    String removeFeed(int feed);
     List<FeedItem> getFeedList();
+    FeedItem getFeedById(int feed);
 }

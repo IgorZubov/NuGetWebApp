@@ -1,31 +1,32 @@
 package com.igor.z.models;
 
+import com.igor.z.daos.FeedDao;
 import com.igor.z.interfaces.IFeedEditorModel;
-import com.igor.z.interfaces.INuGetCommandsWrapper;
-import com.igor.z.utils.FeedItem;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.igor.z.interfaces.ISettingsReader;
+import com.igor.z.modelAttributes.FeedItem;
+import com.igor.z.nugetImplementations.Nuget;
+import com.igor.z.nugetImplementations.NugetFactory;
+import com.igor.z.nugetImplementations.NugetImplementation;
+import com.igor.z.utils.SettingsReader;
 
 public class FeedEditorModel implements IFeedEditorModel {
 
-    private final INuGetCommandsWrapper wrapper;
+    private final FeedDao feedDao;
+    private Nuget nuget;
 
-    public FeedEditorModel(INuGetCommandsWrapper nuGetWrapper){
-        wrapper = nuGetWrapper;
+    public FeedEditorModel(FeedDao feedDao) {
+        this.feedDao = feedDao;
+        ISettingsReader reader = new SettingsReader();
+        NugetImplementation impl = reader.getNuGetImplementation();
+        nuget = new NugetFactory().getNugetImplementation(impl);
     }
 
     @Override
-    public String modifyFeed(FeedItem existedFeed, FeedItem editedFeed) {
-        List<String> result = new ArrayList<>();
-        int exitCode = wrapper.modifyFeed(existedFeed, editedFeed, result);
-        if (exitCode != 0) {
-            StringBuilder builder = new StringBuilder();
-            for (String message : result) {
-                builder.append(message);
-            }
-            return builder.toString();
-        }
-        return "Feed successfully modified.";
+    public String modifyFeed(FeedItem feed, Integer id) {
+        return nuget.modifyFeedSource(feedDao, feed, id);
+    }
+
+    public String addFeed(FeedItem feed) {
+        return nuget.addFeedSource(feedDao, feed);
     }
 }

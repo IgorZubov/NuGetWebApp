@@ -72,12 +72,12 @@ public class JdbcPackageDao implements PackageDao {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            StringBuilder builder = new StringBuilder();
-            builder.append("Package ").append(packageInfo.getId())
-                    .append(" with version ").append(packageInfo.getVersion())
-                    .append(" addition failed!");
-            return builder.toString();
         }
+        StringBuilder builder = new StringBuilder();
+        builder.append("Package ").append(packageInfo.getId())
+                .append(" with version ").append(packageInfo.getVersion())
+                .append(" addition failed!");
+        return builder.toString();
     }
 
     @Override
@@ -96,30 +96,7 @@ public class JdbcPackageDao implements PackageDao {
             ps = con.prepareStatement(query);
             ps.setString(1, searchExp);
             rs = ps.executeQuery();
-            while (rs.next()){
-                NuGetPackageInfo info = new NuGetPackageInfo();
-                info.setId(rs.getString("id"));
-                info.setVersion(rs.getString("version"));
-                info.setAuthors(rs.getString("authors"));
-                info.setOwners(rs.getString("owners"));
-                info.setLicenseUrl(rs.getString("licenseUrl"));
-                info.setProjectUrl(rs.getString("projectUrl"));
-                info.setIconUrl(rs.getString("iconUrl"));
-                info.setReferences(rs.getString("requireLicenseAcceptance"));
-                info.setServiceable(rs.getString("serviceable"));
-                info.setDevelopmentDependency(rs.getString("developmentDependency"));
-                info.setDescription(rs.getString("description"));
-                info.setSummary(rs.getString("summary"));
-                info.setReleaseNotes(rs.getString("releaseNotes"));
-                info.setCopyright(rs.getString("copyright"));
-                info.setLanguage(rs.getString("language"));
-                info.setTitle(rs.getString("title"));
-                info.setTags(rs.getString("tags"));
-                info.setDependencies(rs.getString("dependencies"));
-                info.setFrameworkAssemblies(rs.getString("frameworkAssemblies"));
-                info.setReferences(rs.getString("references"));
-                packages.add(info);
-            }
+            packages = createListFromResponse(rs);
         }catch(SQLException e){
             e.printStackTrace();
         }finally{
@@ -146,30 +123,7 @@ public class JdbcPackageDao implements PackageDao {
             con = dataSource.getConnection();
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();
-            while(rs.next()){
-                NuGetPackageInfo info = new NuGetPackageInfo();
-                info.setId(rs.getString("id"));
-                info.setVersion(rs.getString("version"));
-                info.setAuthors(rs.getString("authors"));
-                info.setOwners(rs.getString("owners"));
-                info.setLicenseUrl(rs.getString("licenseUrl"));
-                info.setProjectUrl(rs.getString("projectUrl"));
-                info.setIconUrl(rs.getString("iconUrl"));
-                info.setReferences(rs.getString("requireLicenseAcceptance"));
-                info.setServiceable(rs.getString("serviceable"));
-                info.setDevelopmentDependency(rs.getString("developmentDependency"));
-                info.setDescription(rs.getString("description"));
-                info.setSummary(rs.getString("summary"));
-                info.setReleaseNotes(rs.getString("releaseNotes"));
-                info.setCopyright(rs.getString("copyright"));
-                info.setLanguage(rs.getString("language"));
-                info.setTitle(rs.getString("title"));
-                info.setTags(rs.getString("tags"));
-                info.setDependencies(rs.getString("dependencies"));
-                info.setFrameworkAssemblies(rs.getString("frameworkAssemblies"));
-                info.setReferences(rs.getString("references"));
-                packages.add(info);
-            }
+            packages = createListFromResponse(rs);
         }catch(SQLException e){
             e.printStackTrace();
         }finally{
@@ -180,6 +134,94 @@ public class JdbcPackageDao implements PackageDao {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        }
+        return packages;
+    }
+
+    @Override
+    public List<NuGetPackageInfo> getAllPackagesFromFeed(String feedSource) {
+        String query = "SELECT * FROM packages WHERE feedId=?";
+        List<NuGetPackageInfo> packages = new ArrayList<>();
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            con = dataSource.getConnection();
+            ps = con.prepareStatement(query);
+            ps.setString(1, feedSource);
+            rs = ps.executeQuery();
+            packages = createListFromResponse(rs);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }finally{
+            try {
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return packages;
+    }
+
+    @Override
+    public List<NuGetPackageInfo> findByAnyFromFeed(String feedSource, String searchExpression) {
+        String query = "SELECT * FROM packages WHERE MATCH (id, version, authors, owners, licenseUrl, projectUrl, " +
+                "serviceable, developmentDependency, description, summary, releaseNotes, " +
+                "title, tags, dependencies, frameworkAssemblies, `references`) " +
+                "AGAINST (? IN NATURAL LANGUAGE MODE) AND feedId = ?";
+
+        List<NuGetPackageInfo> packages = new ArrayList<>();
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            con = dataSource.getConnection();
+            ps = con.prepareStatement(query);
+            ps.setString(1, searchExpression);
+            ps.setString(2, feedSource);
+            rs = ps.executeQuery();
+            packages = createListFromResponse(rs);
+        }catch(SQLException e){
+            e.printStackTrace();
+        }finally{
+            try {
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return packages;
+    }
+
+    private List<NuGetPackageInfo> createListFromResponse(ResultSet rs) throws SQLException {
+        List<NuGetPackageInfo> packages = new ArrayList<>();
+        while (rs.next()){
+            NuGetPackageInfo info = new NuGetPackageInfo();
+            info.setId(rs.getString("id"));
+            info.setVersion(rs.getString("version"));
+            info.setAuthors(rs.getString("authors"));
+            info.setOwners(rs.getString("owners"));
+            info.setLicenseUrl(rs.getString("licenseUrl"));
+            info.setProjectUrl(rs.getString("projectUrl"));
+            info.setIconUrl(rs.getString("iconUrl"));
+            info.setReferences(rs.getString("requireLicenseAcceptance"));
+            info.setServiceable(rs.getString("serviceable"));
+            info.setDevelopmentDependency(rs.getString("developmentDependency"));
+            info.setDescription(rs.getString("description"));
+            info.setSummary(rs.getString("summary"));
+            info.setReleaseNotes(rs.getString("releaseNotes"));
+            info.setCopyright(rs.getString("copyright"));
+            info.setLanguage(rs.getString("language"));
+            info.setTitle(rs.getString("title"));
+            info.setTags(rs.getString("tags"));
+            info.setDependencies(rs.getString("dependencies"));
+            info.setFrameworkAssemblies(rs.getString("frameworkAssemblies"));
+            info.setReferences(rs.getString("references"));
+            packages.add(info);
         }
         return packages;
     }

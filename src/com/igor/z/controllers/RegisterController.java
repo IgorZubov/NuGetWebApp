@@ -1,4 +1,4 @@
-package com.igor.z.springMigration;
+package com.igor.z.controllers;
 
 import com.igor.z.entity.User;
 import com.igor.z.modelAttributes.RegistrationItem;
@@ -13,6 +13,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class RegisterController {
@@ -35,7 +36,7 @@ public class RegisterController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String createAccount(@ModelAttribute("registrationItem") @Validated RegistrationItem regItem,
-                                BindingResult bindingResult) {
+                                BindingResult bindingResult, final RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
             return "registration";
         }
@@ -45,7 +46,9 @@ public class RegisterController {
         }
         User user = new User(regItem.getEmail(), regItem.getPassword(), regItem.getUserName());
         u.createUser(user);
-        return "notauth";
+        redirectAttributes.addFlashAttribute("css", "success");
+        redirectAttributes.addFlashAttribute("msg", "You are successfully registered!");
+        return "redirect:/login";
     }
 
 }

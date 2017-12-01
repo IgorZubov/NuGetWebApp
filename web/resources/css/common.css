@@ -10,6 +10,11 @@ body {
     margin: 0 auto;
 }
 
+.logout-info {
+    max-width: 330px;
+    margin: 0 auto;
+}
+
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
     margin-bottom: 10px;

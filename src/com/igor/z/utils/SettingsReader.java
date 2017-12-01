@@ -18,58 +18,49 @@ import java.io.InputStream;
 public class SettingsReader implements ISettingsReader {
 
     public String getNuGetExecutablePath(){
-        Resource resource = new ClassPathResource("/res/settings.xml");
+        Resource resource = new ClassPathResource("/resources/settings.xml");
+        InputStream content = null;
         try {
-            InputStream resourceInputStream = resource.getInputStream();
+            content = resource.getInputStream();
+            Document doc = readDomDocument(content);
+            String path = readPath("execNuGet", doc);
+            return path;
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
         }
-
-        ClassLoader classLoader = getClass().getClassLoader();
-        InputStream content = classLoader.getResourceAsStream("/res/settings.xml");
-        if (content != null){
+        finally {
             try {
-                Document doc = readDomDocument(content);
-                String path = readPath("execNuGet", doc);
-                return path;
-            } catch (ParserConfigurationException e) {
-                e.printStackTrace();
+                content.close();
             } catch (IOException e) {
                 e.printStackTrace();
-            } catch (SAXException e) {
-                e.printStackTrace();
-            }
-            finally {
-                try {
-                    content.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
             }
         }
         return null;
     }
 
     public String getNuGetConfigPath(){
-        ClassLoader classLoader = getClass().getClassLoader();
-        InputStream content = classLoader.getResourceAsStream("/res/settings.xml");
-        if (content != null){
+        Resource resource = new ClassPathResource("/resources/settings.xml");
+        InputStream content = null;
+        try {
+            content = resource.getInputStream();
+            Document doc = readDomDocument(content);
+            String path = readPath("configNuGet", doc);
+            return path;
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        }finally {
             try {
-                Document doc = readDomDocument(content);
-                String path = readPath("configNuGet", doc);
-                return path;
-            } catch (ParserConfigurationException e) {
-                e.printStackTrace();
+                content.close();
             } catch (IOException e) {
                 e.printStackTrace();
-            } catch (SAXException e) {
-                e.printStackTrace();
-            }finally {
-                try {
-                    content.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
             }
         }
         return null;
@@ -102,6 +93,27 @@ public class SettingsReader implements ISettingsReader {
 
     @Override
     public NugetImplementation getNuGetImplementation() {
+        Resource resource = new ClassPathResource("/resources/settings.xml");
+        InputStream content = null;
+        try {
+            content = resource.getInputStream();
+            Document doc = readDomDocument(content);
+            String path = readPath("nuGetImpl", doc);
+            return NugetImplementation.valueOf(path);
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                if (content != null)
+                    content.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         return NugetImplementation.EMPTY_NUGET;
     }
 

@@ -5,9 +5,9 @@ import com.igor.z.modelAttributes.FeedItem;
 import java.util.List;
 
 public interface FeedDao {
-    void insert(FeedItem feed);
+    String insert(FeedItem feed);
     FeedItem findByFeedItemId(int feedId);
-    void update(FeedItem feed);
-    void deleteById(int id);
+    String update(FeedItem feed, int feedId);
+    String deleteById(int id);
     List<FeedItem> getAll();
 }

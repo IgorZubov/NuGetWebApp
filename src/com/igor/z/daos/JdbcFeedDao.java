@@ -19,10 +19,11 @@ public class JdbcFeedDao implements FeedDao{
     private DataSource dataSource;
 
     @Override
-    public void insert(FeedItem feed) {
+    public String insert(FeedItem feed) {
         String query = "insert into feeds (feedname, feedsource, apikey) values (?,?,?)";
         Connection con = null;
         PreparedStatement ps = null;
+        Exception error = null;
         try{
             con = dataSource.getConnection();
             ps = con.prepareStatement(query);
@@ -31,9 +32,12 @@ public class JdbcFeedDao implements FeedDao{
             ps.setString(3, feed.getApiKey());
             int out = ps.executeUpdate();
             if(out !=0){
-                System.out.println("Employee saved with id="+feed.getFeedName());
-            }else System.out.println("Employee save failed with id="+feed.getFeedName());
+                return "Feed " + feed.getFeedName() + " successfully added!";
+            } else{
+                return "Feed " + feed.getFeedName() + " was not added!";
+            }
         }catch(SQLException e){
+            error = e;
             e.printStackTrace();
         }finally{
             try {
@@ -43,6 +47,7 @@ public class JdbcFeedDao implements FeedDao{
                 e.printStackTrace();
             }
         }
+        return "Error occurred: " + error.getMessage() + " !";
     }
 
     @Override
@@ -82,21 +87,24 @@ public class JdbcFeedDao implements FeedDao{
     }
 
     @Override
-    public void update(FeedItem feed) {
-        String query = "update feeds set feedname=?, feedsource=?, apikey=? where feedname=?";
+    public String update(FeedItem feed, int feedId) {
+        String query = "update feeds set feedname=?, feedsource=?, apikey=? where id=?";
         Connection con = null;
         PreparedStatement ps = null;
+        Exception error = null;
         try{
             con = dataSource.getConnection();
             ps = con.prepareStatement(query);
             ps.setString(1, feed.getFeedName());
             ps.setString(2, feed.getFeedSource());
             ps.setString(3, feed.getApiKey());
-            ps.setString(4, feed.getFeedName());
+            ps.setInt(4, feedId);
             int out = ps.executeUpdate();
             if(out !=0){
-                System.out.println("Employee updated with id="+feed.getFeedName());
-            }else System.out.println("No Employee found with id="+feed.getFeedName());
+                return "Feed successfully modified!";
+            } else {
+                return "Feed was not modified!";
+            }
         }catch(SQLException e){
             e.printStackTrace();
         }finally{
@@ -107,22 +115,27 @@ public class JdbcFeedDao implements FeedDao{
                 e.printStackTrace();
             }
         }
+        return "Error occurred: " + error.getMessage() + " !";
     }
 
     @Override
-    public void deleteById(int id) {
+    public String deleteById(int id) {
         String query = "delete from feeds where id=?";
         Connection con = null;
         PreparedStatement ps = null;
+        Exception error = null;
         try{
             con = dataSource.getConnection();
             ps = con.prepareStatement(query);
             ps.setInt(1, id);
             int out = ps.executeUpdate();
             if(out !=0){
-                System.out.println("Employee deleted with id="+id);
-            }else System.out.println("No Employee found with id="+id);
+                return "Feed successfully deleted!";
+            } else {
+                return "Feed was not!";
+            }
         }catch(SQLException e){
+            error = e;
             e.printStackTrace();
         }finally{
             try {
@@ -132,6 +145,7 @@ public class JdbcFeedDao implements FeedDao{
                 e.printStackTrace();
             }
         }
+        return "Error occurred: " + error.getMessage() + " !";
     }
 
     @Override

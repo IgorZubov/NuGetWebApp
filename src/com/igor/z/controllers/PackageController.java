@@ -1,4 +1,4 @@
-package com.igor.z.springMigration;
+package com.igor.z.controllers;
 
 import com.igor.z.daos.JdbcFeedDao;
 import com.igor.z.daos.JdbcPackageDao;
@@ -6,9 +6,9 @@ import com.igor.z.interfaces.IPackageUploaderModel;
 import com.igor.z.modelAttributes.FeedItem;
 import com.igor.z.modelAttributes.PackageItem;
 import com.igor.z.models.PackageUploaderModel;
-import com.igor.z.utils.NuGetCommandsWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,7 +24,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
-public class PackageControl {
+public class PackageController {
+    private List<String> sourceList;
 
     @Autowired
     private JdbcFeedDao feedDao;
@@ -44,24 +45,27 @@ public class PackageControl {
     @RequestMapping(value = "/user/addPackage", method = RequestMethod.GET)
     public ModelAndView showForm(@ModelAttribute("packageItem") PackageItem packageItem, Model model) {
         List<FeedItem> feeds = feedDao.getAll();
-        List<String> sourceList = feeds.stream().map(feedItem -> feedItem.getFeedName()).collect(Collectors.toList());
+        sourceList = feeds.stream().map(feedItem -> feedItem.getFeedName()).collect(Collectors.toList());
         model.addAttribute("sourceList", sourceList);
         return new ModelAndView("user/package", "packageItem", new PackageItem());
     }
 
-    @RequestMapping(value = "/user/addPackage", method = RequestMethod.POST)
+    @RequestMapping(value = "/user/addPackage", method = RequestMethod.POST, consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     public String addPackage(@RequestParam MultipartFile file,
                              @ModelAttribute("packageItem") PackageItem packageItem,
-                             final RedirectAttributes redirectAttributes, BindingResult result) {
+                             final RedirectAttributes redirectAttributes, BindingResult result, Model model) {
         packageItem.setFile(file);
         validator.validate(packageItem, result);
+        if (result.hasErrors()) {
+            model.addAttribute("sourceList", sourceList);
+            return "user/package";
+        }
         IPackageUploaderModel packageUploader = new PackageUploaderModel(packageDao);
         String successMessage;
         try {
-            String uploadedPath = packageUploader.uploadPackageToTempFolder(packageItem.getFile());
-            successMessage= packageUploader.addPackageToFeed(uploadedPath, packageItem.getSource());
+            String uploadedPath = packageUploader.uploadPackageToTempFolder((MultipartFile)packageItem.getFile());
+            successMessage = packageUploader.addPackageToFeed(uploadedPath, packageItem.getSource());
             packageUploader.deleteTempFile(uploadedPath);
-            packageDao.findByAny("NuGet");
         } catch (IOException e) {
             e.printStackTrace();
             redirectAttributes.addFlashAttribute("css", "error");

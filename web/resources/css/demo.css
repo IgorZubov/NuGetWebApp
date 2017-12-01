@@ -164,10 +164,10 @@ a:focus {
 	color: #4b0f31;
 }
 
-.box {
-	background-color: #dfc8ca;
-	padding: 1.25rem 1.25rem;
-}
+/*.box {*/
+	/*background-color: #dfc8ca;*/
+	/*padding: 1.25rem 1.25rem;*/
+/*}*/
 
 .box + .box {
 	margin-top: 2.5rem;

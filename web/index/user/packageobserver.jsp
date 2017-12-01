@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<c:set var="searchPachageHidden" value="none" scope="request" />
 <jsp:include page="../fragments/header.jsp" />
 <body>
 <div class="container">
@@ -37,7 +38,7 @@
                 <label class="col-sm-2 control-label">Source</label>
                 <div class="col-sm-5">
                     <form:select path="feedSource" class="form-control">
-                        <form:option value="NONE" label="--- Select ---" />
+                        <form:option value="" label="--- Select ---" />
                         <form:options items="${sourceList}" />
                     </form:select>
                     <form:errors path="feedSource" class="control-label" />
@@ -60,6 +61,8 @@
             <th>Name</th>
             <th>Version</th>
             <th>Description</th>
+            <th>Authors</th>
+            <th>Tags</th>
         </tr>
         </thead>
 
@@ -70,6 +73,8 @@
                 </td>
                 <td>${package.version}</td>
                 <td>${package.description}</td>
+                <td>${package.authors}</td>
+                <td>${package.tags}</td>
             </tr>
         </c:forEach>
     </table>

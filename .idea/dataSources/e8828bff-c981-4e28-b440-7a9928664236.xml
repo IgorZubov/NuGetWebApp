@@ -205,13 +205,13 @@ dependencies
 frameworkAssemblies
 references</ColNames>
     </index>
-    <index id="53" parent="13" name="nugetpackages_feeds_feedname_fk">
-      <ColNames>feedId</ColNames>
-    </index>
-    <index id="54" parent="13" name="nugetpackages_id_version_pk">
+    <index id="53" parent="13" name="nugetpackages_id_version_pk">
       <ColNames>id
 version</ColNames>
       <Unique>1</Unique>
+    </index>
+    <index id="54" parent="13" name="packages_feeds_feedname_fk">
+      <ColNames>feedId</ColNames>
     </index>
     <key id="55" parent="13" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
@@ -223,11 +223,13 @@ version</ColNames>
 version</ColNames>
       <UnderlyingIndexName>nugetpackages_id_version_pk</UnderlyingIndexName>
     </key>
-    <foreign-key id="57" parent="13" name="nugetpackages_feeds_feedname_fk">
+    <foreign-key id="57" parent="13" name="packages_feeds_feedname_fk">
       <ColNames>feedId</ColNames>
       <RefSchemaName>nugetserverinfo</RefSchemaName>
       <RefTableName>feeds</RefTableName>
       <RefColNames>feedname</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
   </database-model>
 </dataSource>

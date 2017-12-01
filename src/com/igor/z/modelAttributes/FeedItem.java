@@ -7,6 +7,18 @@ public class FeedItem {
     private String feedSource;
     private String apiKey;
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (!FeedItem.class.isAssignableFrom(obj.getClass())) {
+            return false;
+        }
+        final FeedItem other = (FeedItem) obj;
+        return other.feedName.equals(this.feedName) && other.feedSource.equals(this.feedSource);
+    }
+
     public String getFeedName() {
         return feedName;
     }

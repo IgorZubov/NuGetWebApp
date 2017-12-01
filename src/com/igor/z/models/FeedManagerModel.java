@@ -1,57 +1,40 @@
 package com.igor.z.models;
 
+import com.igor.z.daos.FeedDao;
 import com.igor.z.interfaces.IFeedManagerModel;
-import com.igor.z.interfaces.INuGetCommandsWrapper;
-import com.igor.z.utils.FeedItem;
-import com.igor.z.utils.NuGetCommandsWrapper;
+import com.igor.z.interfaces.ISettingsReader;
+import com.igor.z.modelAttributes.FeedItem;
+import com.igor.z.nugetImplementations.Nuget;
+import com.igor.z.nugetImplementations.NugetFactory;
+import com.igor.z.nugetImplementations.NugetImplementation;
+import com.igor.z.utils.SettingsReader;
 
-import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class FeedManagerModel implements IFeedManagerModel {
 
-    private INuGetCommandsWrapper wrapper;
+    private final FeedDao feedDao;
+    private Nuget nuget;
 
-    public FeedManagerModel(NuGetCommandsWrapper nuGetCommandsWrapper) {
-        wrapper = nuGetCommandsWrapper;
+    public FeedManagerModel(FeedDao feedDao) {
+        this.feedDao = feedDao;
+        ISettingsReader reader = new SettingsReader();
+        NugetImplementation impl = reader.getNuGetImplementation();
+        nuget = new NugetFactory().getNugetImplementation(impl);
     }
 
     @Override
-    public String addFeed(FeedItem feed) {
-        List<String> result = new ArrayList<>();
-        StringBuilder builder = new StringBuilder();
-        if (wrapper.createNewFeed(feed, result) == 0){
-            builder.append("Feed ").append(feed.getName()).append(" added successfully!");
-            List<FeedItem> feeds = new ArrayList<>();
-            if (wrapper.getFeedList(feeds, new ArrayList<>()) == 0){
-                List<FeedItem> added = feeds.stream().filter(item -> item.getName().equals(feed.getName()))
-                        .collect(Collectors.toList());
-                File sourceFolder = new File(added.get(0).getSource());
-                if (!sourceFolder.exists())
-                    if (!sourceFolder.exists())
-                        sourceFolder.mkdirs();
-            }
-        } else {
-            result.stream().forEach(line -> builder.append(line).append(" "));
-        }
-        return builder.toString().trim();
-    }
-
-    @Override
-    public String removeFeed(FeedItem feed) {
-        List<String> result = new ArrayList<>();
-        wrapper.removeFeed(feed, result);
-        StringBuilder builder = new StringBuilder();
-        result.stream().forEach(line -> builder.append(line).append(" "));
-        return builder.toString().trim();
+    public String removeFeed(int feed) {
+        return nuget.deleteFeedSource(feedDao, feed);
     }
 
     @Override
     public List<FeedItem> getFeedList() {
-        List<FeedItem> res = new ArrayList<>();
-        wrapper.getFeedList(res, new ArrayList<>());
-        return res;
+        return nuget.getAllFeeds(feedDao);
+    }
+
+    @Override
+    public FeedItem getFeedById(int feed) {
+        return nuget.getFeedById(feedDao, feed);
     }
 }

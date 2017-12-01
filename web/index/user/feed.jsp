@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<c:set var="addFeedHidden" value="none" scope="request" />
 <jsp:include page="../fragments/header.jsp" />
 
 <div class="container">

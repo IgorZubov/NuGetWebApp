@@ -8,4 +8,6 @@ public interface PackageDao {
     String insert(NuGetPackageInfo packageInfo, String feed);
     List<NuGetPackageInfo> findByAny(String searchExp);
     List<NuGetPackageInfo> getAll();
+    List<NuGetPackageInfo> getAllPackagesFromFeed(String feedSource);
+    List<NuGetPackageInfo> findByAnyFromFeed(String feedSource, String searchExpression);
 }

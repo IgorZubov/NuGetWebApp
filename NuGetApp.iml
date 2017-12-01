@@ -22,21 +22,6 @@
         <fileset id="fileset2" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/web/WEB-INF/spring-servlet.xml</file>
         </fileset>
-        <fileset id="fileset3" name="Appconfig Secuirity" removed="false">
-          <file>file://$MODULE_DIR$/web/WEB-INF/appconfig-secuirity.xml</file>
-        </fileset>
-        <fileset id="fileset4" name="Spring Database" removed="false">
-          <file>file://$MODULE_DIR$/web/WEB-INF/spring-database.xml</file>
-        </fileset>
-        <fileset id="fileset5" name="Spring Security" removed="false">
-          <file>file://$MODULE_DIR$/web/WEB-INF/spring-security.xml</file>
-        </fileset>
-        <fileset id="fileset6" name="Appconfig Mvc" removed="false">
-          <file>file://$MODULE_DIR$/web/WEB-INF/appconfig-mvc.xml</file>
-        </fileset>
-        <fileset id="fileset7" name="Appconfig Security" removed="false">
-          <file>file://$MODULE_DIR$/web/WEB-INF/appconfig-security.xml</file>
-        </fileset>
       </configuration>
     </facet>
     <facet type="javaeeApplication" name="javaEEApplication">

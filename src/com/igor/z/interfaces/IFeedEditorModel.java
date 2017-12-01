@@ -1,7 +1,9 @@
 package com.igor.z.interfaces;
 
-import com.igor.z.utils.FeedItem;
+
+import com.igor.z.modelAttributes.FeedItem;
 
 public interface IFeedEditorModel {
-    String modifyFeed(FeedItem existedFeed, FeedItem editedFeed);
+    String modifyFeed(FeedItem feed, Integer id);
+    String addFeed(FeedItem feed);
 }

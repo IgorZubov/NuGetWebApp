@@ -1,6 +1,6 @@
 package com.igor.z.interfaces;
 
-import com.igor.z.utils.FeedItem;
+import com.igor.z.modelAttributes.FeedItem;
 import com.igor.z.utils.PackageInfo;
 
 import java.util.List;

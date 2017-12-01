@@ -2,7 +2,6 @@ package com.zubov.i.tests;
 
 import com.igor.z.controllers.FeedEditorController;
 import com.igor.z.interfaces.IFeedEditorModel;
-import com.igor.z.interfaces.INuGetCommandsWrapper;
 import com.igor.z.utils.Consts;
 import com.igor.z.utils.FeedItem;
 import com.zubov.i.tests.utils.ContextMocker;
@@ -62,7 +61,7 @@ public class FeedEditorTests {
         flash.put(Consts.FEED, oldItem);
         view = new FeedEditorController(model);
         view.FeedEditor();
-        when(model.modifyFeed(eq(oldItem), eq(newItem))).thenReturn("Feed successfully modified.");
+        when(model.modifyFeed(eq(oldItem), )).thenReturn("Feed successfully modified.");
         view.submit(newName, newSource);
         view = new FeedEditorController(model);
         view.FeedEditor();
@@ -86,7 +85,7 @@ public class FeedEditorTests {
         flash.put(Consts.FEED, oldItem);
         view = new FeedEditorController(model);
         view.FeedEditor();
-        when(model.modifyFeed(eq(oldItem), eq(newItem))).thenReturn("Something wrong");
+        when(model.modifyFeed(eq(oldItem), )).thenReturn("Something wrong");
         view.submit(newName, newSource);
         view = new FeedEditorController(model);
         view.FeedEditor();

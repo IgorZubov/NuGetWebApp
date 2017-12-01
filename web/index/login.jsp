@@ -15,15 +15,14 @@
 
     <title>Log in with your account</title>
 
-    <spring:url value="./resources/css/bootstrap.min.css" var="mainCss" />
+    <spring:url value="./resources/css/bootstrapforms.min.css" var="formsCss" />
     <spring:url value="./resources/css/common.css" var="commonCss" />
     <spring:url value="./resources/js/bootstrap.min.js" var="jqueryJs" />
-    <%--<spring:url value="/resources/js/main.js" var="mainJs" />--%>
+    <spring:url value="./resources/js/bootstrapforms.min.js" var="formJs" />
 
-    <link href="${mainCss}" rel="stylesheet" />
+    <link href="${formsCss}" rel="stylesheet" />
     <link href="${commonCss}" rel="stylesheet" />
-    <script src="${jqueryJs}"></script>
-    <%--<script src="${mainJs}"></script>--%>
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -35,6 +34,15 @@
 <body>
 
 <div class="container">
+
+    <c:if test="${not empty msg}">
+        <div class="alert alert-${css} alert-dismissible logout-info" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>${msg}</strong>
+        </div>
+    </c:if>
 
     <form method="POST" action="sigin" class="form-signin">
         <h2 class="form-heading">Log in</h2>
@@ -56,6 +64,8 @@
 </div>
 <!-- /container -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="${jqueryJs}"></script>
+<script src="${formJs}"></script>
 <%--<script src="${contextPath}/resources/js/bootstrap.min.js"></script>--%>
 </body>
 </html>
