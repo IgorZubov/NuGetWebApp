@@ -51,7 +51,10 @@ public class FeedController {
         if (result.hasErrors()) {
             return "user/feed";
         }
-        feed.setApiKey("");//TODO
+        if (feed.getApiKey() == null)
+            feed.setApiKey("");
+        feed.setFeedName(feed.getFeedName());
+        feed.setFeedSource(feed.getFeedSource());
         FeedEditorModel feedEditorModel = new FeedEditorModel(feedDao);
         String msg;
         if(feed.isNew()){

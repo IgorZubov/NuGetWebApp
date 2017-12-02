@@ -48,6 +48,16 @@
             </div>
         </spring:bind>
 
+        <spring:bind path="apiKey">
+            <div class="form-group ${status.error ? 'has-error' : ''}">
+                <label class="col-sm-2 control-label">Api Key</label>
+                <div class="col-sm-10">
+                    <form:input path="apiKey" class="form-control" id="apiKey" placeholder="Api Key" />
+                    <form:errors path="apiKey" class="control-label" />
+                </div>
+            </div>
+        </spring:bind>
+
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <c:choose>

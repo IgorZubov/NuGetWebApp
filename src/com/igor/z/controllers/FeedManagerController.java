@@ -6,6 +6,7 @@ import com.igor.z.models.FeedManagerModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -39,9 +40,19 @@ public class FeedManagerController {
     }
 
     @RequestMapping(value = "/user/feedmanager/{id}/update", method = RequestMethod.POST)
-    public ModelAndView updateUser(@PathVariable("id") int id) {
+    public ModelAndView updateFeed(@PathVariable("id") int id) {
         FeedManagerModel feedManagerModel = new FeedManagerModel(feedDao);
         FeedItem item = feedManagerModel.getFeedById(id);
         return new ModelAndView("user/feed", "feedItem", item);
+    }
+
+    @RequestMapping(value = "/user/feedmanager/{id}/sync", method = RequestMethod.POST)
+    public String syncFeed(@PathVariable("id") int id, ModelMap model,
+                                 final RedirectAttributes redirectAttributes) {
+        FeedManagerModel feedManagerModel = new FeedManagerModel(feedDao);
+        FeedItem item = feedManagerModel.getFeedById(id);
+        redirectAttributes.addFlashAttribute("feedItem", item);
+        return "redirect:/user/sync";
+//        return new ModelAndView("user/sync", "feedItem", item);
     }
 }

@@ -25,10 +25,10 @@ public class EmptyNuget implements Nuget {
     }
 
     @Override
-    public String addPackageToSource(String packagePath, String selectedFeed, PackageDao packageDao) {
+    public String addPackageToSource(String packagePath, FeedItem feed, PackageDao packageDao) {
         PackageInfoReader reader = new PackageInfoReader();
         NuGetPackageInfo info = reader.readPackage(packagePath);
-        return packageDao.insert(info, selectedFeed);
+        return packageDao.insert(info, feed.getFeedSource());
     }
 
     @Override
@@ -49,6 +49,11 @@ public class EmptyNuget implements Nuget {
     @Override
     public List<NuGetPackageInfo> searchForPackagesInExactFeed(String feedSource, String searchExpression, PackageDao packageDao) {
         return packageDao.findByAnyFromFeed(feedSource, searchExpression);
+    }
+
+    @Override
+    public String syncFeed(PackageDao packageDao, FeedItem feed) {
+        return "Synchronisation for EMPTY_NUGET is unnecessary!";
     }
 
     @Override

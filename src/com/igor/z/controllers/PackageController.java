@@ -26,6 +26,7 @@ import java.util.stream.Collectors;
 @Controller
 public class PackageController {
     private List<String> sourceList;
+    private List<FeedItem> feedList;
 
     @Autowired
     private JdbcFeedDao feedDao;
@@ -44,8 +45,8 @@ public class PackageController {
 
     @RequestMapping(value = "/user/addPackage", method = RequestMethod.GET)
     public ModelAndView showForm(@ModelAttribute("packageItem") PackageItem packageItem, Model model) {
-        List<FeedItem> feeds = feedDao.getAll();
-        sourceList = feeds.stream().map(feedItem -> feedItem.getFeedName()).collect(Collectors.toList());
+        feedList = feedDao.getAll();
+        sourceList = feedList.stream().map(feedItem -> feedItem.getFeedName()).collect(Collectors.toList());
         model.addAttribute("sourceList", sourceList);
         return new ModelAndView("user/package", "packageItem", new PackageItem());
     }
@@ -64,7 +65,9 @@ public class PackageController {
         String successMessage;
         try {
             String uploadedPath = packageUploader.uploadPackageToTempFolder((MultipartFile)packageItem.getFile());
-            successMessage = packageUploader.addPackageToFeed(uploadedPath, packageItem.getSource());
+            FeedItem feed = feedList.stream().filter(f -> f.getFeedSource().equals(packageItem.getSource()))
+                    .findAny().orElse(null);
+            successMessage = packageUploader.addPackageToFeed(uploadedPath, feed);
             packageUploader.deleteTempFile(uploadedPath);
         } catch (IOException e) {
             e.printStackTrace();

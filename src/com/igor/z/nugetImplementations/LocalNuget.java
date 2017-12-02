@@ -82,16 +82,16 @@ public class LocalNuget implements Nuget {
     }
 
     @Override
-    public String addPackageToSource(String packagePath, String selectedFeed, PackageDao packageDao) {
+    public String addPackageToSource(String packagePath, FeedItem feed, PackageDao packageDao) {
         List<String> result = new ArrayList<>();
         List<FeedItem> feeds = new ArrayList<>();
         wrapper.getFeedList(feeds, result);
-        FeedItem realFeed = feeds.stream().filter(f -> f.getFeedName().equals(selectedFeed)).findAny().orElse(null);
+        FeedItem realFeed = feeds.stream().filter(f -> f.getFeedName().equals(feed)).findAny().orElse(null);
         if (realFeed != null){
             if ( wrapper.addPackageToFeed(packagePath, realFeed.getFeedSource(), result) == 0){
                 PackageInfoReader reader = new PackageInfoReader();
                 NuGetPackageInfo info = reader.readPackage(packagePath);
-                return packageDao.insert(info, selectedFeed);
+                return packageDao.insert(info, feed.getFeedSource());
             }
         }
         return "Smth went wrong!";
@@ -115,5 +115,10 @@ public class LocalNuget implements Nuget {
     @Override
     public List<NuGetPackageInfo> searchForPackagesInExactFeed(String feedSource, String searchExpression, PackageDao packageDao) {
         return packageDao.findByAnyFromFeed(feedSource, searchExpression);
+    }
+
+    @Override
+    public String syncFeed(PackageDao packageDao, FeedItem feed) {
+        return "Synchronisation for LOCAL_NUGET has not implemented yet!";
     }
 }

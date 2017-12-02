@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Repository
 public class JdbcPackageDao implements PackageDao {
@@ -82,7 +84,13 @@ public class JdbcPackageDao implements PackageDao {
 
     @Override
     public List<NuGetPackageInfo> findByAny(String searchExp) {
-        String query = "SELECT * FROM packages WHERE MATCH (id, version, authors, owners, licenseUrl, projectUrl, " +
+        Pattern pattern = Pattern.compile("\\d+\\.\\d+\\.\\d+.*");
+        Matcher matcher = pattern.matcher(searchExp);
+        String query;
+        if (matcher.matches())
+            query = "SELECT * FROM packages WHERE version LIKE ?";
+        else
+            query = "SELECT * FROM packages WHERE MATCH (id, version, authors, owners, licenseUrl, projectUrl, " +
                 "serviceable, developmentDependency, description, summary, releaseNotes, " +
                 "title, tags, dependencies, frameworkAssemblies, `references`) " +
                 "AGAINST (? IN NATURAL LANGUAGE MODE)";
@@ -94,7 +102,10 @@ public class JdbcPackageDao implements PackageDao {
         try{
             con = dataSource.getConnection();
             ps = con.prepareStatement(query);
-            ps.setString(1, searchExp);
+            if (matcher.matches())
+                ps.setString(1, "%" + searchExp + "%");
+            else
+                ps.setString(1, searchExp);
             rs = ps.executeQuery();
             packages = createListFromResponse(rs);
         }catch(SQLException e){
@@ -114,7 +125,6 @@ public class JdbcPackageDao implements PackageDao {
     @Override
     public List<NuGetPackageInfo> getAll() {
         String query = "SELECT * FROM packages";
-
         List<NuGetPackageInfo> packages = new ArrayList<>();
         Connection con = null;
         PreparedStatement ps = null;
@@ -166,8 +176,14 @@ public class JdbcPackageDao implements PackageDao {
     }
 
     @Override
-    public List<NuGetPackageInfo> findByAnyFromFeed(String feedSource, String searchExpression) {
-        String query = "SELECT * FROM packages WHERE MATCH (id, version, authors, owners, licenseUrl, projectUrl, " +
+    public List<NuGetPackageInfo> findByAnyFromFeed(String feedSource, String searchExp) {
+        Pattern pattern = Pattern.compile("\\d+\\.\\d+\\.\\d+.*");
+        Matcher matcher = pattern.matcher(searchExp);
+        String query;
+        if (matcher.matches())
+            query = "SELECT * FROM packages WHERE version LIKE ? AND feedId = ?";
+        else
+            query = "SELECT * FROM packages WHERE MATCH (id, version, authors, owners, licenseUrl, projectUrl, " +
                 "serviceable, developmentDependency, description, summary, releaseNotes, " +
                 "title, tags, dependencies, frameworkAssemblies, `references`) " +
                 "AGAINST (? IN NATURAL LANGUAGE MODE) AND feedId = ?";
@@ -179,7 +195,10 @@ public class JdbcPackageDao implements PackageDao {
         try{
             con = dataSource.getConnection();
             ps = con.prepareStatement(query);
-            ps.setString(1, searchExpression);
+            if (matcher.matches())
+                ps.setString(1, "%" + searchExp + "%");
+            else
+                ps.setString(1, searchExp);
             ps.setString(2, feedSource);
             rs = ps.executeQuery();
             packages = createListFromResponse(rs);
@@ -195,6 +214,27 @@ public class JdbcPackageDao implements PackageDao {
             }
         }
         return packages;
+    }
+
+    @Override
+    public void deleteAll() {
+        String query = "DELETE FROM packages";
+        Connection con = null;
+        PreparedStatement ps = null;
+        try{
+            con = dataSource.getConnection();
+            ps = con.prepareStatement(query);
+            ps.executeUpdate();
+        }catch(SQLException e){
+            e.printStackTrace();
+        }finally{
+            try {
+                ps.close();
+                con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private List<NuGetPackageInfo> createListFromResponse(ResultSet rs) throws SQLException {

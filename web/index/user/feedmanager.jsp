@@ -36,9 +36,11 @@
                 <td>
                     <spring:url value="/user/feedmanager/${feed.id}/delete" var="deleteUrl" />
                     <spring:url value="/user/feedmanager/${feed.id}/update" var="updateUrl" />
+                    <spring:url value="/user/feedmanager/${feed.id}/sync" var="syncUrl" />
 
                     <%--<button class="btn btn-primary" onclick="location.href='${updateUrl}'">Update</button>--%>
                     <button class="btn btn-primary" onclick="post('${updateUrl}')">Update</button>
+                    <button class="btn btn-primary" onclick="post('${syncUrl}')">Sync</button>
                     <button class="btn btn-danger" onclick="this.disabled=true;post('${deleteUrl}')">Delete</button></td>
             </tr>
         </c:forEach>

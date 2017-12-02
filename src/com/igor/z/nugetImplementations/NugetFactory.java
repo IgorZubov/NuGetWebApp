@@ -1,5 +1,7 @@
 package com.igor.z.nugetImplementations;
 
+import com.igor.z.utils.NuGetCommandsWrapper;
+
 public class NugetFactory {
     public Nuget getNugetImplementation(NugetImplementation implementation){
         switch (implementation){
@@ -7,6 +9,8 @@ public class NugetFactory {
                 return new EmptyNuget();
             case LOCAL_NUGET:
                 return new LocalNuget();
+            case SERVER_NUGET:
+                return new ServerNuget();
             default:
                 return new EmptyNuget();
         }

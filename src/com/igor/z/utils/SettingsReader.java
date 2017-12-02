@@ -106,7 +106,9 @@ public class SettingsReader implements ISettingsReader {
             e.printStackTrace();
         } catch (SAXException e) {
             e.printStackTrace();
-        }finally {
+        } catch (IllegalArgumentException e){
+            e.printStackTrace();
+        } finally {
             try {
                 if (content != null)
                     content.close();

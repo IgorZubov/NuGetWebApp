@@ -18,6 +18,7 @@ public class NuGetCommandsWrapper implements INuGetCommandsWrapper {
     private String _nugetConfigPath;
     private String _feedCommands = "sources";
     private String _add = "add";
+    private String _push = "push";
     private String _remove = "remove";
     private String _list = "list";
     private String _name = "-name";
@@ -38,6 +39,7 @@ public class NuGetCommandsWrapper implements INuGetCommandsWrapper {
         _nugetExecutablePath = reader.getNuGetExecutablePath();
     }
 
+    @Override
     public int createNewFeed(FeedItem feed, List<String> returnMessage) {
         ProcessBuilder pb = new ProcessBuilder(
                 _nugetExecutablePath,
@@ -61,6 +63,7 @@ public class NuGetCommandsWrapper implements INuGetCommandsWrapper {
         return exitCode;
     }
 
+    @Override
     public int getFeedList(List<FeedItem> feedList, List<String> returnMessage) {
         returnMessage.clear();
         ProcessBuilder pb = new ProcessBuilder(
@@ -84,6 +87,7 @@ public class NuGetCommandsWrapper implements INuGetCommandsWrapper {
         return exitCode;
     }
 
+    @Override
     public int removeFeed(FeedItem feed, List<String> returnMessage) {
         returnMessage.clear();
         ProcessBuilder pb = new ProcessBuilder(
@@ -93,6 +97,7 @@ public class NuGetCommandsWrapper implements INuGetCommandsWrapper {
         return exitCode;
     }
 
+    @Override
     public int modifyFeed(FeedItem oldFeed, FeedItem newFeed, List<String> returnMessage) {
         returnMessage.clear();
         int exitCode1 = removeFeed(oldFeed, returnMessage);
@@ -103,6 +108,7 @@ public class NuGetCommandsWrapper implements INuGetCommandsWrapper {
         return exitCode1+exitCode2;
     }
 
+    @Override
     public int addPackageToFeed(String packagePath, String selectedFeedSource, List<String> returnMessage) {
         returnMessage.clear();
         ProcessBuilder pb = new ProcessBuilder(
@@ -112,6 +118,17 @@ public class NuGetCommandsWrapper implements INuGetCommandsWrapper {
         return exitCode;
     }
 
+    @Override
+    public int pushPackage(String feedSource, String apiKey, String packagePath, List<String> returnMessage) {
+        returnMessage.clear();
+        ProcessBuilder pb = new ProcessBuilder(
+                _nugetExecutablePath,
+                _push, packagePath, apiKey, _source, feedSource, _forceEnglish);
+        int exitCode = safeExecutingNuGetCommand(returnMessage, pb);
+        return exitCode;
+    }
+
+    @Override
     public int searchPackage(String searchExp, List<PackageInfo> packageInfoList, List<String> returnMessage)  {
         returnMessage.clear();
         Pattern pattern = Pattern.compile("\\d+\\.\\d+\\.\\d+\\-*.*");

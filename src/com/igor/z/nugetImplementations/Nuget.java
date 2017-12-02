@@ -13,9 +13,10 @@ public interface Nuget {
     String deleteFeedSource(FeedDao feedDao, int id);
     List<FeedItem> getAllFeeds(FeedDao feedDao);
     FeedItem getFeedById(FeedDao feedDao, int feedId);
-    String addPackageToSource(String packagePath, String selectedFeed, PackageDao packageDao);
+    String addPackageToSource(String packagePath, FeedItem feed, PackageDao packageDao);
     List<NuGetPackageInfo> searchForPackagesInEveryFeed(String searchExp, PackageDao packageDao);
     List<NuGetPackageInfo> getAllPackages(PackageDao packageDao);
     List<NuGetPackageInfo> getAllPackagesFromFeed(String feedSource, PackageDao packageDao);
     List<NuGetPackageInfo> searchForPackagesInExactFeed(String feedSource, String searchExpression, PackageDao packageDao);
+    String syncFeed(PackageDao packageDao, FeedItem feed);
 }

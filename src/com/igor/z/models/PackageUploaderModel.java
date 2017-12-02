@@ -1,19 +1,16 @@
 package com.igor.z.models;
 
 import com.igor.z.daos.PackageDao;
-import com.igor.z.interfaces.INuGetCommandsWrapper;
 import com.igor.z.interfaces.IPackageUploaderModel;
 import com.igor.z.interfaces.ISettingsReader;
+import com.igor.z.modelAttributes.FeedItem;
 import com.igor.z.nugetImplementations.Nuget;
 import com.igor.z.nugetImplementations.NugetFactory;
 import com.igor.z.nugetImplementations.NugetImplementation;
 import com.igor.z.utils.SettingsReader;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.Part;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class PackageUploaderModel implements IPackageUploaderModel {
 
@@ -28,7 +25,7 @@ public class PackageUploaderModel implements IPackageUploaderModel {
     }
 
     @Override
-    public String addPackageToFeed(String packagePath, String selectedFeed) {
+    public String addPackageToFeed(String packagePath, FeedItem selectedFeed) {
         return nuget.addPackageToSource(packagePath, selectedFeed, packageDao);
     }
 

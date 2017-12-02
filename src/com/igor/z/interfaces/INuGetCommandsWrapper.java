@@ -13,5 +13,6 @@ public interface INuGetCommandsWrapper {
     int modifyFeed(FeedItem oldFeed, FeedItem newFeed, List<String> returnMessage);
     int addPackageToFeed(String packagePath, String selectedFeedSource, List<String> returnMessage);
     int searchPackage(String searchExp, List<PackageInfo> packageInfoList, List<String> returnMessage);
+    int pushPackage(String feedSource, String apiKey, String packagePath, List<String> messages);
 }
 

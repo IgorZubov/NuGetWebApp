@@ -10,4 +10,5 @@ public interface PackageDao {
     List<NuGetPackageInfo> getAll();
     List<NuGetPackageInfo> getAllPackagesFromFeed(String feedSource);
     List<NuGetPackageInfo> findByAnyFromFeed(String feedSource, String searchExpression);
+    void deleteAll();
 }
