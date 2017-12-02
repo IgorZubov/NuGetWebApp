@@ -54,10 +54,10 @@ public class NuGetCommandsWrapper implements INuGetCommandsWrapper {
             exitCode = runNuGetCommand(returnMessage, pb);
         } catch (IOException e) {
             exitCode =-1;
-            returnMessage.add("Error occurred in running nuget command");
+            returnMessage.add("Error occurred in running nuget command: " + e.getMessage());
         } catch (InterruptedException e) {
             exitCode =-1;
-            returnMessage.add("Error occurred in running nuget command");
+            returnMessage.add("Error occurred in running nuget command: " + e.getMessage());
         }
         return exitCode;
     }

@@ -13,25 +13,107 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5bf77fb0-d243-4fbf-b460-43e458dc2799" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/igor/z/springutils/DomReader.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/igor/z/utils/Consts.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/antlr-2.7.7.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/aopalliance-1.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/cdi-api.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/classmate-1.3.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/commons-logging-1.2.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/dom4j-1.6.1.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/hibernate-commons-annotations-5.0.1.Final.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/hibernate-core-5.2.12.Final.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/hibernate-jpa-2.1-api-1.0.0.Final.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jandex-2.0.3.Final.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/javassist-3.20.0-GA.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/javax.annotation.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/javax.jms.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/javax.persistence.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/javax.resource.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/javax.servlet.jsp.jstl.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/javax.transaction.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jboss-logging-3.3.0.Final.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jboss-transaction-api_1.2_spec-1.0.1.Final.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-aop-4.3.12.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-aspects-4.3.12.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-batch-core-2.2.6.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-batch-infrastructure-2.2.6.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-beans-4.3.12.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-binding-2.4.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-context-4.3.12.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-context-support-4.3.12.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-core-4.3.12.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-data-jpa-1.3.3.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-expression-4.3.12.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-faces-2.4.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-instrument-4.3.12.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-instrument-tomcat-4.3.12.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-amqp-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-core-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-event-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-feed-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-file-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-ftp-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-gemfire-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-groovy-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-http-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-ip-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-jdbc-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-jms-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-jmx-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-jpa-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-mail-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-mongodb-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-mqtt-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-redis-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-rmi-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-scripting-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-security-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-sftp-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-stream-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-syslog-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-test-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-twitter-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-ws-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-xml-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-integration-xmpp-4.0.3.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-jdbc-4.3.12.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-jms-4.3.12.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-js-2.4.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-js-resources-2.4.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-messaging-4.3.12.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-orm-4.3.12.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-oxm-4.3.12.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-security-acl-3.2.5.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-security-aspects-3.2.5.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-security-cas-3.2.5.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-security-config-3.2.5.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-security-core-3.2.5.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-security-crypto-3.2.5.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-security-ldap-3.2.5.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-security-openid-3.2.5.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-security-remoting-3.2.5.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-security-taglibs-3.2.5.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-security-web-3.2.5.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-test-4.3.12.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-tx-4.3.12.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-web-4.3.12.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-webflow-2.4.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-webmvc-4.3.12.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-webmvc-portlet-4.3.12.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-websocket-4.3.12.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/spring-ws.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/weld-api.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/weld-core-impl.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/weld-core-jsf.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/weld-core.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/weld-se-core.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/weld-se.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/weld-servlet-core.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/weld-servlet.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/weld-spi.jar" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/NuGetApp_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/NuGetApp_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/src/com/zubov/i/tests/FeedEditorTests.java" afterPath="$PROJECT_DIR$/Tests/src/com/zubov/i/tests/FeedEditorTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/messages.properties" afterPath="$PROJECT_DIR$/src/META-INF/messages.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/controllers/FeedManagerController.java" afterPath="$PROJECT_DIR$/src/com/igor/z/controllers/FeedManagerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/controllers/PackageController.java" afterPath="$PROJECT_DIR$/src/com/igor/z/controllers/PackageController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/controllers/PackageObserverController.java" afterPath="$PROJECT_DIR$/src/com/igor/z/controllers/PackageObserverController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/controllers/SyncController.java" afterPath="$PROJECT_DIR$/src/com/igor/z/controllers/SyncController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/daos/JdbcFeedDao.java" afterPath="$PROJECT_DIR$/src/com/igor/z/daos/JdbcFeedDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/daos/JdbcPackageDao.java" afterPath="$PROJECT_DIR$/src/com/igor/z/daos/JdbcPackageDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/entity/Group.java" afterPath="$PROJECT_DIR$/src/com/igor/z/entity/Group.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/entity/User.java" afterPath="$PROJECT_DIR$/src/com/igor/z/entity/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/nugetImplementations/LocalNuget.java" afterPath="$PROJECT_DIR$/src/com/igor/z/nugetImplementations/LocalNuget.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/nugetImplementations/NugetFactory.java" afterPath="$PROJECT_DIR$/src/com/igor/z/nugetImplementations/NugetFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/nugetImplementations/ServerNuget.java" afterPath="$PROJECT_DIR$/src/com/igor/z/nugetImplementations/ServerNuget.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/springutils/PackageInfoReader.java" afterPath="$PROJECT_DIR$/src/com/igor/z/springutils/PackageInfoReader.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/utils/NuGetCommandsWrapper.java" afterPath="$PROJECT_DIR$/src/com/igor/z/utils/NuGetCommandsWrapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/utils/SettingsReader.java" afterPath="$PROJECT_DIR$/src/com/igor/z/utils/SettingsReader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/settings.xml" afterPath="$PROJECT_DIR$/src/resources/settings.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,47 +141,36 @@
         <item name="nugetserverinfo@localhost" type="e3449647:DbNodeDescriptor" />
         <item name="nugetdata" type="e3449647:DbNodeDescriptor" />
       </path>
-      <path>
-        <item name="" type="eadb38e5:DatabaseStructure$Root" />
-        <item name="nugetserverinfo@localhost" type="e3449647:DbNodeDescriptor" />
-        <item name="nugetserverinfo" type="e3449647:DbNodeDescriptor" />
-      </path>
-      <path>
-        <item name="" type="eadb38e5:DatabaseStructure$Root" />
-        <item name="nugetserverinfo@localhost" type="e3449647:DbNodeDescriptor" />
-        <item name="nugetserverinfo" type="e3449647:DbNodeDescriptor" />
-        <item name="packages" type="e3449647:DbNodeDescriptor" />
-      </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PackageInfo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/igor/z/utils/PackageInfo.java">
+      <file leaf-file-name="NuGetCommandsWrapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/igor/z/utils/NuGetCommandsWrapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="191">
+              <caret line="53" column="33" lean-forward="false" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PackageInfoReader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/igor/z/springutils/PackageInfoReader.java">
+      <file leaf-file-name="settings.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/resources/settings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-136">
-              <caret line="84" column="58" lean-forward="false" selection-start-line="84" selection-start-column="58" selection-end-line="84" selection-end-column="58" />
+            <state relative-caret-position="102">
+              <caret line="6" column="16" lean-forward="false" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SettingsReader.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/igor/z/utils/SettingsReader.java">
+      <file leaf-file-name="settings.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tests/src/resources/settings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="44" column="28" lean-forward="false" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
+            <state relative-caret-position="68">
+              <caret line="4" column="39" lean-forward="false" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -142,7 +213,12 @@
       <find>email.required</find>
       <find>padding</find>
       <find>.or</find>
+      <find>error oc</find>
+      <find>Error occurred in running nuget command</find>
     </findStrings>
+    <dirStrings>
+      <dir>F:\forGitNew\NuGetWebApp</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -179,7 +255,6 @@
         <option value="$PROJECT_DIR$/src/com/igor/z/models/PackageUploaderModel.java" />
         <option value="$PROJECT_DIR$/src/com/igor/z/nugetImplementations/EmptyNuget.java" />
         <option value="$PROJECT_DIR$/src/com/igor/z/models/SyncModel.java" />
-        <option value="$PROJECT_DIR$/src/resources/settings.xml" />
         <option value="$PROJECT_DIR$/src/com/igor/z/nugetImplementations/NugetFactory.java" />
         <option value="$PROJECT_DIR$/lib/spring-web-4.3.12.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class" />
         <option value="$PROJECT_DIR$/Tests/src/com/zubov/i/tests/FeedManagerTests.java" />
@@ -196,7 +271,6 @@
         <option value="$PROJECT_DIR$/Tests/src/com/zubov/i/tests/FeedEditorTests.java" />
         <option value="$PROJECT_DIR$/web/index/user/sync.jsp" />
         <option value="$PROJECT_DIR$/src/com/igor/z/springutils/DomReader.java" />
-        <option value="$PROJECT_DIR$/src/com/igor/z/utils/NuGetCommandsWrapper.java" />
         <option value="$PROJECT_DIR$/src/com/igor/z/nugetImplementations/ServerNuget.java" />
         <option value="$PROJECT_DIR$/src/com/igor/z/controllers/PackageObserverController.java" />
         <option value="$PROJECT_DIR$/src/com/igor/z/controllers/PackageController.java" />
@@ -206,6 +280,8 @@
         <option value="$PROJECT_DIR$/src/com/igor/z/daos/JdbcFeedDao.java" />
         <option value="$PROJECT_DIR$/src/META-INF/messages.properties" />
         <option value="$PROJECT_DIR$/src/com/igor/z/utils/SettingsReader.java" />
+        <option value="$PROJECT_DIR$/src/com/igor/z/utils/NuGetCommandsWrapper.java" />
+        <option value="$PROJECT_DIR$/src/resources/settings.xml" />
       </list>
     </option>
   </component>
@@ -253,31 +329,6 @@
               <item name="NuGetWebApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="NuGetWebApp" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="NuGetWebApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NuGetWebApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NuGetWebApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NuGetWebApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="z" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NuGetWebApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NuGetWebApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="z" type="462c0819:PsiDirectoryNode" />
-              <item name="springutils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NuGetWebApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NuGetWebApp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="z" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -290,7 +341,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="last_opened_file_path" value="C:/Program Files (x86)/Git/bin/git.exe" />
@@ -340,7 +391,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.com.zubov.i.tests in Tests">
+  <component name="RunManager" selected="GlassFish Server.GlassFishMainApp">
     <configuration name="GlassFishMainApp" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 5.0.0" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:9999/NuGetApp_war_exploded/index.jsp" />
       <option name="BROWSER_ID" value="53e2f627-b1a7-4dfa-bfa7-5b83cc034776" />
@@ -661,7 +712,7 @@
       <workItem from="1511626182410" duration="52282000" />
       <workItem from="1511789497101" duration="27029000" />
       <workItem from="1511877348965" duration="103787000" />
-      <workItem from="1512201234537" duration="12124000" />
+      <workItem from="1512201234537" duration="17734000" />
     </task>
     <task id="LOCAL-00001" summary="Packages observer + couple of TODOs">
       <created>1512053462044</created>
@@ -698,7 +749,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512212150216</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="little refactoring">
+      <created>1512213394943</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1512213394943</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -707,9 +765,6 @@
     </history-entry>
     <history-entry file="PackageInfoTestReader - 2017.12.02 at 13h 52m 23s.xml">
       <configuration name="PackageInfoTestReader" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PackageInfoTestReader_shouldReadMetaDataFromPackage - 2017.11.28 at 16h 54m 39s.xml">
-      <configuration name="PackageInfoTestReader.shouldReadMetaDataFromPackage" configurationId="JUnit" />
     </history-entry>
     <history-entry file="PackageInfoTestReader_shouldReadMetaDataFromPackage - 2017.11.28 at 16h 56m 12s.xml">
       <configuration name="PackageInfoTestReader.shouldReadMetaDataFromPackage" configurationId="JUnit" />
@@ -732,9 +787,12 @@
     <history-entry file="com_zubov_i_tests_in_Tests - 2017.12.02 at 13h 55m 13s.xml">
       <configuration name="com.zubov.i.tests in Tests" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="com_zubov_i_tests_in_Tests - 2017.12.02 at 15h 12m 08s.xml">
+      <configuration name="com.zubov.i.tests in Tests" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="339808000" />
+    <option name="totallyTimeSpent" value="345418000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -752,7 +810,7 @@
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32753405" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2236842" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22697368" sideWeight="0.49635416" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -830,7 +888,8 @@
     <MESSAGE value="Not logged in view" />
     <MESSAGE value="Sync and load server impl" />
     <MESSAGE value="Test build fix. Need to rewrite completely" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test build fix. Need to rewrite completely" />
+    <MESSAGE value="little refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="little refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -918,14 +977,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/settings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/out/artifacts/NuGetApp_war_exploded/WEB-INF/classes/resources/settings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -966,13 +1017,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/baa0c80f/e8828bff-c981-4e28-b440-7a9928664236/nugetserverinfo.packages">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/igor/z/modelAttributes/FeedItem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -990,13 +1034,6 @@
         <state relative-caret-position="272">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/baa0c80f/e8828bff-c981-4e28-b440-7a9928664236/nugetserverinfo.feeds">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1050,14 +1087,6 @@
             <element signature="e#1483#1484#0" expanded="true" />
             <element signature="e#1562#1563#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/src/resources/settings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="39" lean-forward="false" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1193,16 +1222,8 @@
         <state relative-caret-position="82">
           <caret line="9" column="27" lean-forward="true" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/igor/z/utils/NuGetCommandsWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1297,10 +1318,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/igor/z/utils/PackageInfo.java">
+    <entry file="das://table:/baa0c80f/e8828bff-c981-4e28-b440-7a9928664236/nugetserverinfo.feeds">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/baa0c80f/e8828bff-c981-4e28-b440-7a9928664236/nugetserverinfo.packages">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/igor/z/utils/SettingsReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="287">
+          <caret line="44" column="28" lean-forward="false" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -1313,10 +1348,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/igor/z/utils/SettingsReader.java">
+    <entry file="file://$PROJECT_DIR$/src/com/igor/z/utils/PackageInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="44" column="28" lean-forward="false" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/igor/z/utils/NuGetCommandsWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="53" column="33" lean-forward="false" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/src/resources/settings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="39" lean-forward="false" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/settings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="16" lean-forward="false" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
           <folding />
         </state>
       </provider>

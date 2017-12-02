@@ -2,6 +2,6 @@
 <configuration>
     <uploadTmpFolder path="C:/uploads"/>
     <configNuGet path="C:/NuGet/my.Config"/>
-    <execNuGet path="F:/NuGet/nuget.exe "/>
+    <execNuGet path="F:/NuGet/nuget.exe"/>
     <nuGetImpl path="SERVER_NUGET"/>
 </configuration>
