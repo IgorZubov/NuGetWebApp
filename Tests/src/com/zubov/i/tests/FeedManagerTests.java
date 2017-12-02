@@ -1,20 +1,15 @@
 package com.zubov.i.tests;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 import com.igor.z.interfaces.IFeedManagerModel;
 import com.igor.z.controllers.FeedManagerController;
 import com.igor.z.modelAttributes.FeedItem;
-import com.zubov.i.tests.utils.ContextMocker;
-import com.zubov.i.tests.utils.FlashStub;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
-import javax.faces.context.Flash;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,11 +31,7 @@ public class FeedManagerTests {
     public void shouldCreateController() {
         List<FeedItem> feeds = new ArrayList<>();
         when(model.getFeedList()).thenReturn(feeds);
-        FacesContext context = ContextMocker.mockFacesContext();
-        ExternalContext ext = mock(ExternalContext.class);
-        Flash flash = new FlashStub();
-        when(ext.getFlash()).thenReturn(flash);
-        when(context.getExternalContext()).thenReturn(ext);
+
 
 //        view = new FeedManagerController(model);
     }
@@ -49,11 +40,7 @@ public class FeedManagerTests {
     public void shouldAddNewFeed() {
         List<FeedItem> feeds = new ArrayList<>();
         when(model.getFeedList()).thenReturn(feeds);
-        FacesContext context = ContextMocker.mockFacesContext();
-        ExternalContext ext = mock(ExternalContext.class);
-        Flash flash = new FlashStub();
-        when(ext.getFlash()).thenReturn(flash);
-        when(context.getExternalContext()).thenReturn(ext);
+
 
 //        view = new FeedManagerController(model);
 //        String feedName = "new feed";
@@ -79,11 +66,7 @@ public class FeedManagerTests {
         item.setFeedSource("source");
         feeds.add(item);
         when(model.getFeedList()).thenReturn(feeds);
-        FacesContext context = ContextMocker.mockFacesContext();
-        ExternalContext ext = mock(ExternalContext.class);
-        Flash flash = new FlashStub();
-        when(ext.getFlash()).thenReturn(flash);
-        when(context.getExternalContext()).thenReturn(ext);
+
 
 //        view = new FeedManagerController(model);
 //        String feedName = "new feed";

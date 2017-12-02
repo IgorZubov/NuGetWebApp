@@ -5,14 +5,11 @@ import com.igor.z.interfaces.ISettingsReader;
 import com.igor.z.modelAttributes.FeedItem;
 import com.igor.z.utils.NuGetCommandsWrapper;
 import com.igor.z.utils.PackageInfo;
-import com.zubov.i.tests.utils.ContextMocker;
 import com.zubov.i.tests.utils.UnDisposableStream;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
 
 import java.io.*;
 import java.net.URL;

@@ -2,15 +2,9 @@ package com.zubov.i.tests;
 
 import com.igor.z.interfaces.IFeedEditorModel;
 import com.igor.z.modelAttributes.FeedItem;
-import com.zubov.i.tests.utils.ContextMocker;
-import com.zubov.i.tests.utils.FlashStub;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
-import javax.faces.context.Flash;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -34,20 +28,11 @@ public class FeedEditorTests {
 
     @Test
     public void shouldCreateFeedEditorController(){
-        FacesContext context = ContextMocker.mockFacesContext();
-        ExternalContext ext = mock(ExternalContext.class);
-        Flash flash = new FlashStub();
-        when(ext.getFlash()).thenReturn(flash);
-        when(context.getExternalContext()).thenReturn(ext);
+
     }
 
     @Test
     public void shouldSubmitChanges(){
-        FacesContext context = ContextMocker.mockFacesContext();
-        ExternalContext ext = mock(ExternalContext.class);
-        Flash flash = new FlashStub();
-        when(ext.getFlash()).thenReturn(flash);
-        when(context.getExternalContext()).thenReturn(ext);
 
         String newName = "newName";
         String newSource = "newSource";
@@ -71,12 +56,6 @@ public class FeedEditorTests {
 
     @Test
     public void shouldNotSubmitChanges(){
-        FacesContext context = ContextMocker.mockFacesContext();
-        ExternalContext ext = mock(ExternalContext.class);
-        Flash flash = new FlashStub();
-        when(ext.getFlash()).thenReturn(flash);
-        when(context.getExternalContext()).thenReturn(ext);
-
         String newName = "newName";
         String newSource = "newSource";
         FeedItem oldItem = new FeedItem();
