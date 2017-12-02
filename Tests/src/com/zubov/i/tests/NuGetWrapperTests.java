@@ -2,7 +2,7 @@ package com.zubov.i.tests;
 
 import com.igor.z.interfaces.INuGetCommandsWrapper;
 import com.igor.z.interfaces.ISettingsReader;
-import com.igor.z.utils.FeedItem;
+import com.igor.z.modelAttributes.FeedItem;
 import com.igor.z.utils.NuGetCommandsWrapper;
 import com.igor.z.utils.PackageInfo;
 import com.zubov.i.tests.utils.ContextMocker;
@@ -40,11 +40,6 @@ public class NuGetWrapperTests {
 
     @Before
     public void setup() {
-        content = new UnDisposableStream( "resources/settings.xml");
-        FacesContext context = ContextMocker.mockFacesContext();
-        ExternalContext ext = mock(ExternalContext.class);
-        when(context.getExternalContext()).thenReturn(ext);
-        when(ext.getResourceAsStream(any(String.class))).thenReturn(content);
         mockReader = mock(ISettingsReader.class);
         ClassLoader classLoader = getClass().getClassLoader();
         URL conf = classLoader.getResource("resources/test.Config");
@@ -107,13 +102,15 @@ public class NuGetWrapperTests {
         int res = wrapper.getFeedList(feeds, result);
         assertEquals(0, res);
         assertEquals(0, feeds.size());
-        FeedItem item = new FeedItem("feed", "source");
+        FeedItem item = new FeedItem();
+        item.setFeedName("feed");
+        item.setFeedSource("source");
         res = wrapper.createNewFeed(item, result);
         assertEquals(0, res);
         res = wrapper.getFeedList(feeds, result);
         assertEquals(0, res);
         assertEquals(1, feeds.size());
-        assertEquals(item.getName(), feeds.get(0).getName());
+        assertEquals(item.getFeedName(), feeds.get(0).getFeedName());
         res = wrapper.removeFeed(item, result);
         assertEquals(0, res);
         feeds.clear();
@@ -129,29 +126,35 @@ public class NuGetWrapperTests {
         int res = wrapper.getFeedList(feeds, result);
         assertEquals(0, res);
         assertEquals(0, feeds.size());
-        FeedItem item = new FeedItem("feed", "source");
-        FeedItem newItem = new FeedItem("feed1", "source");
-        FeedItem newItem2 = new FeedItem("feed1", "source1");
+        FeedItem item = new FeedItem();
+        item.setFeedName("feed");
+        item.setFeedSource("source");
+        FeedItem newItem = new FeedItem();
+        newItem.setFeedName("feed1");
+        newItem.setFeedSource("source");
+        FeedItem newItem2 = new FeedItem();
+        newItem2.setFeedName("feed1");
+        newItem2.setFeedSource("source1");
         res = wrapper.createNewFeed(item, result);
         assertEquals(0, res);
         res = wrapper.getFeedList(feeds, result);
         assertEquals(0, res);
         assertEquals(1, feeds.size());
-        assertEquals(item.getName(), feeds.get(0).getName());
+        assertEquals(item.getFeedName(), feeds.get(0).getFeedName());
         feeds.clear();
         res = wrapper.modifyFeed(item, newItem, result);//change name
         assertEquals(0, res);
         res = wrapper.getFeedList(feeds, result);
         assertEquals(0, res);
         assertEquals(1, feeds.size());
-        assertEquals(newItem.getName(), feeds.get(0).getName());
+        assertEquals(newItem.getFeedName(), feeds.get(0).getFeedName());
         feeds.clear();
         res = wrapper.modifyFeed(newItem, newItem2, result);//change source
         assertEquals(0, res);
         res = wrapper.getFeedList(feeds, result);
         assertEquals(0, res);
         assertEquals(1, feeds.size());
-        assertEquals(newItem2.getName(), feeds.get(0).getName());
+        assertEquals(newItem2.getFeedName(), feeds.get(0).getFeedName());
         feeds.clear();
         res = wrapper.removeFeed(newItem2, result);//delete
         assertEquals(0, res);
@@ -162,7 +165,9 @@ public class NuGetWrapperTests {
 
     @Test
     public void shouldAddPackage(){
-        FeedItem item = new FeedItem("feed", "source");
+        FeedItem item = new FeedItem();
+        item.setFeedName("feed");
+        item.setFeedSource("source");
         List<String> result = new ArrayList<>();
         int res = wrapper.createNewFeed(item, result);
         assertEquals(0, res);
@@ -170,7 +175,7 @@ public class NuGetWrapperTests {
         res = wrapper.getFeedList(list, result);
         assertEquals(0, res);
         assertEquals(1, list.size());
-        res = wrapper.addPackageToFeed(folderPath +"\\"+PilotSDK, list.get(0).getSource(), result);
+        res = wrapper.addPackageToFeed(folderPath +"\\"+PilotSDK, list.get(0).getFeedSource(), result);
         assertEquals(0, res);
         res = wrapper.removeFeed(item, result);
         assertEquals(0, res);
@@ -178,7 +183,9 @@ public class NuGetWrapperTests {
 
     @Test
     public void shouldAddMultiplePackageAndFind(){
-        FeedItem item = new FeedItem("feed", "source");
+        FeedItem item = new FeedItem();
+        item.setFeedName("feed");
+        item.setFeedSource("source");
         List<String> result = new ArrayList<>();
         int res = wrapper.createNewFeed(item, result);
         assertEquals(0, res);
@@ -186,9 +193,9 @@ public class NuGetWrapperTests {
         res = wrapper.getFeedList(list, result);
         assertEquals(0, res);
         assertEquals(1, list.size());
-        res = wrapper.addPackageToFeed(folderPath +"\\"+PilotSDK, list.get(0).getSource(), result);
+        res = wrapper.addPackageToFeed(folderPath +"\\"+PilotSDK, list.get(0).getFeedSource(), result);
         assertEquals(0, res);
-        res = wrapper.addPackageToFeed(folderPath +"\\"+Log4Net, list.get(0).getSource(), result);
+        res = wrapper.addPackageToFeed(folderPath +"\\"+Log4Net, list.get(0).getFeedSource(), result);
         assertEquals(0, res);
         List<PackageInfo> packages = new ArrayList<>();
         res = wrapper.searchPackage("", packages, result);
