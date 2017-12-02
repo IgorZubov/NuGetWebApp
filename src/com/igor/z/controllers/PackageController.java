@@ -65,7 +65,7 @@ public class PackageController {
         String successMessage;
         try {
             String uploadedPath = packageUploader.uploadPackageToTempFolder((MultipartFile)packageItem.getFile());
-            FeedItem feed = feedList.stream().filter(f -> f.getFeedSource().equals(packageItem.getSource()))
+            FeedItem feed = feedList.stream().filter(f -> f.getFeedName().equals(packageItem.getSource()))
                     .findAny().orElse(null);
             successMessage = packageUploader.addPackageToFeed(uploadedPath, feed);
             packageUploader.deleteTempFile(uploadedPath);

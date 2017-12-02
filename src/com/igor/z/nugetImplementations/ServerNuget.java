@@ -53,9 +53,13 @@ public class ServerNuget implements Nuget {
             if (wrapper.pushPackage(feed.getFeedSource(), feed.getApiKey(), packagePath, messages) == 0){
                 PackageInfoReader reader = new PackageInfoReader();
                 NuGetPackageInfo info = reader.readPackage(packagePath);
-                return packageDao.insert(info, feed.getFeedSource());
+                return packageDao.insert(info, feed.getFeedName());
+            }else{
+                // 406 - ALREADY EXISTS
+                if (messages.size() > 0 && messages.get(messages.size() - 1).contains("406"))
+                    return "Package has already added!";
             }
-            return messages.size() > 1 ? messages.get(messages.size() - 1) : "Some error occurred!";
+            return messages.size() > 0 ? messages.get(messages.size() - 1) : "Some error occurred!";
         }
         return "Feed source is not available or misspelled!";
     }

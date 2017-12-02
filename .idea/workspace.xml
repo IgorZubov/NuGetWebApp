@@ -10,31 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5bf77fb0-d243-4fbf-b460-43e458dc2799" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/igor/z/controllers/SyncController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/igor/z/interfaces/ISyncModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/igor/z/models/SyncModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/index/user/sync.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/controllers/FeedController.java" afterPath="$PROJECT_DIR$/src/com/igor/z/controllers/FeedController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/controllers/FeedManagerController.java" afterPath="$PROJECT_DIR$/src/com/igor/z/controllers/FeedManagerController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/controllers/PackageController.java" afterPath="$PROJECT_DIR$/src/com/igor/z/controllers/PackageController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/daos/JdbcPackageDao.java" afterPath="$PROJECT_DIR$/src/com/igor/z/daos/JdbcPackageDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/daos/PackageDao.java" afterPath="$PROJECT_DIR$/src/com/igor/z/daos/PackageDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/interfaces/INuGetCommandsWrapper.java" afterPath="$PROJECT_DIR$/src/com/igor/z/interfaces/INuGetCommandsWrapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/interfaces/IPackageUploaderModel.java" afterPath="$PROJECT_DIR$/src/com/igor/z/interfaces/IPackageUploaderModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/models/PackageUploaderModel.java" afterPath="$PROJECT_DIR$/src/com/igor/z/models/PackageUploaderModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/nugetImplementations/EmptyNuget.java" afterPath="$PROJECT_DIR$/src/com/igor/z/nugetImplementations/EmptyNuget.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/nugetImplementations/LocalNuget.java" afterPath="$PROJECT_DIR$/src/com/igor/z/nugetImplementations/LocalNuget.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/nugetImplementations/Nuget.java" afterPath="$PROJECT_DIR$/src/com/igor/z/nugetImplementations/Nuget.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/nugetImplementations/NugetFactory.java" afterPath="$PROJECT_DIR$/src/com/igor/z/nugetImplementations/NugetFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/nugetImplementations/ServerNuget.java" afterPath="$PROJECT_DIR$/src/com/igor/z/nugetImplementations/ServerNuget.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/springutils/PackageInfoReader.java" afterPath="$PROJECT_DIR$/src/com/igor/z/springutils/PackageInfoReader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/utils/NuGetCommandsWrapper.java" afterPath="$PROJECT_DIR$/src/com/igor/z/utils/NuGetCommandsWrapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/igor/z/utils/SettingsReader.java" afterPath="$PROJECT_DIR$/src/com/igor/z/utils/SettingsReader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/settings.xml" afterPath="$PROJECT_DIR$/src/resources/settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index/user/feed.jsp" afterPath="$PROJECT_DIR$/web/index/user/feed.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index/user/feedmanager.jsp" afterPath="$PROJECT_DIR$/web/index/user/feedmanager.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index/user/packageobserver.jsp" afterPath="$PROJECT_DIR$/web/index/user/packageobserver.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,8 +59,8 @@
       <file leaf-file-name="ServerNuget.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/igor/z/nugetImplementations/ServerNuget.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+            <state relative-caret-position="13">
+              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
               <folding>
                 <element signature="method#remoteFeedIsAvailable#0;class#ServerNuget#0" expanded="false" />
                 <element signature="method#getStreamWithPackagesInfo#0;class#ServerNuget#0" expanded="false" />
@@ -91,13 +69,25 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="NuGetCommandsWrapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/igor/z/utils/NuGetCommandsWrapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="183">
+              <caret line="125" column="52" lean-forward="false" selection-start-line="125" selection-start-column="52" selection-end-line="125" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="FeedItem.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/igor/z/modelAttributes/FeedItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+            <state relative-caret-position="238">
+              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
+                <element signature="e#730#731#0" expanded="true" />
                 <element signature="e#763#764#0" expanded="true" />
+                <element signature="e#921#922#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,8 +96,8 @@
       <file leaf-file-name="JdbcPackageDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/igor/z/daos/JdbcPackageDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+            <state relative-caret-position="98">
+              <caret line="22" column="66" lean-forward="false" selection-start-line="22" selection-start-column="62" selection-end-line="22" selection-end-column="66" />
               <folding>
                 <marker date="1512209784085" expanded="true" signature="676:1063" ph="insert into packages... " />
                 <marker date="1512209784085" expanded="true" signature="3987:4014" ph="SELECT * FRO... packages" />
@@ -125,6 +115,36 @@
                 <marker date="1512209784085" expanded="true" signature="7250:7588" ph="SELECT * FRO... packages" />
                 <marker date="1512209784085" expanded="true" signature="8521:8541" ph="DELETE FROM " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PackageController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/igor/z/controllers/PackageController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="72" column="32" lean-forward="true" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PackageUploaderModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/igor/z/models/PackageUploaderModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="148">
+              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileValidator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/igor/z/validators/FileValidator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -150,15 +170,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="packages" pinned="false" current-in-tab="false">
-        <entry file="das://table:/baa0c80f/e8828bff-c981-4e28-b440-7a9928664236/nugetserverinfo.packages">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SyncModel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/igor/z/models/SyncModel.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -169,36 +180,6 @@
                 <element signature="e#881#882#0" expanded="true" />
                 <element signature="e#936#937#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FeedManagerController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/igor/z/controllers/FeedManagerController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="49" column="17" lean-forward="false" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sync.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/index/user/sync.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="31" column="4" lean-forward="true" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="69" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="feed.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/index/user/feed.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="26" column="4" lean-forward="false" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="105" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -294,7 +275,6 @@
         <option value="$PROJECT_DIR$/src/com/igor/z/nugetImplementations/LocalNuget.java" />
         <option value="$PROJECT_DIR$/src/com/igor/z/nugetImplementations/EmptyNuget.java" />
         <option value="$PROJECT_DIR$/src/com/igor/z/models/SyncModel.java" />
-        <option value="$PROJECT_DIR$/src/com/igor/z/controllers/PackageController.java" />
         <option value="$PROJECT_DIR$/src/com/igor/z/utils/SettingsReader.java" />
         <option value="$PROJECT_DIR$/src/resources/settings.xml" />
         <option value="$PROJECT_DIR$/src/com/igor/z/nugetImplementations/NugetFactory.java" />
@@ -303,6 +283,7 @@
         <option value="$PROJECT_DIR$/src/com/igor/z/controllers/FeedManagerController.java" />
         <option value="$PROJECT_DIR$/src/com/igor/z/controllers/SyncController.java" />
         <option value="$PROJECT_DIR$/src/com/igor/z/daos/JdbcPackageDao.java" />
+        <option value="$PROJECT_DIR$/src/com/igor/z/controllers/PackageController.java" />
         <option value="$PROJECT_DIR$/src/com/igor/z/nugetImplementations/ServerNuget.java" />
       </list>
     </option>
@@ -789,7 +770,7 @@
       <workItem from="1511626182410" duration="52282000" />
       <workItem from="1511789497101" duration="27029000" />
       <workItem from="1511877348965" duration="103787000" />
-      <workItem from="1512201234537" duration="8941000" />
+      <workItem from="1512201234537" duration="10074000" />
     </task>
     <task id="LOCAL-00001" summary="Packages observer + couple of TODOs">
       <created>1512053462044</created>
@@ -805,7 +786,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512055112312</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Sync and load server impl">
+      <created>1512210222431</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1512210222431</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -841,7 +829,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="336625000" />
+    <option name="totallyTimeSpent" value="337758000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -858,7 +846,7 @@
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32753405" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28453946" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2236842" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22697368" sideWeight="0.49635416" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -934,7 +922,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Packages observer + couple of TODOs" />
     <MESSAGE value="Not logged in view" />
-    <option name="LAST_COMMIT_MESSAGE" value="Not logged in view" />
+    <MESSAGE value="Sync and load server impl" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sync and load server impl" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -945,17 +934,11 @@
           <properties />
           <option name="timeStamp" value="365" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/igor/z/nugetImplementations/ServerNuget.java</url>
-          <line>90</line>
-          <properties />
-          <option name="timeStamp" value="377" />
-        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="378" />
+      <option name="time" value="383" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="GlassfishConfiguration">
@@ -1026,14 +1009,6 @@
             <element signature="e#213#214#0" expanded="false" />
             <element signature="e#245#246#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/igor/z/validators/FileValidator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="22" column="87" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="87" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1160,14 +1135,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/igor/z/utils/NuGetCommandsWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="125" column="63" lean-forward="false" selection-start-line="125" selection-start-column="63" selection-end-line="125" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/igor/z/springutils/PackageInfoReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2005">
@@ -1198,14 +1165,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="30" column="59" lean-forward="false" selection-start-line="30" selection-start-column="59" selection-end-line="30" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/igor/z/controllers/PackageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="69" column="80" lean-forward="false" selection-start-line="69" selection-start-column="80" selection-end-line="69" selection-end-column="80" />
           <folding />
         </state>
       </provider>
@@ -1279,14 +1238,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/igor/z/models/PackageUploaderModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="27" column="31" lean-forward="false" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/igor/z/utils/SettingsReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1335,16 +1286,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/igor/z/modelAttributes/FeedItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="e#763#764#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/baa0c80f/e8828bff-c981-4e28-b440-7a9928664236/nugetserverinfo.packages">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -1356,30 +1297,6 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/igor/z/daos/JdbcPackageDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding>
-            <marker date="1512209784085" expanded="true" signature="676:1063" ph="insert into packages... " />
-            <marker date="1512209784085" expanded="true" signature="3987:4014" ph="SELECT * FRO... packages" />
-            <marker date="1512209784085" expanded="true" signature="3987:4015" ph="SELECT * FRO... packages" />
-            <marker date="1512209784085" expanded="true" signature="3987:4022" ph="SELECT * FRO... packages" />
-            <marker date="1512209784085" expanded="true" signature="3987:4023" ph="SELECT * FRO... packages" />
-            <marker date="1512209784085" expanded="true" signature="3987:4024" ph="SELECT * FRO... packages" />
-            <marker date="1512209784085" expanded="true" signature="3987:4030" ph="SELECT * FRO... packages" />
-            <marker date="1512209784085" expanded="true" signature="4067:4390" ph="SELECT * FRO... packages" />
-            <marker date="1512209784085" expanded="true" signature="5297:5319" ph="SELECT * FRO... packages" />
-            <marker date="1512209784085" expanded="true" signature="6106:6143" ph="SELECT * FRO... packages" />
-            <marker date="1512209784085" expanded="true" signature="7155:7198" ph="SELECT * FRO... packages" />
-            <marker date="1512209784085" expanded="true" signature="7155:7213" ph="SELECT * FRO... packages" />
-            <marker date="1512209784085" expanded="true" signature="7155:7214" ph="SELECT * FRO... packages" />
-            <marker date="1512209784085" expanded="true" signature="7250:7588" ph="SELECT * FRO... packages" />
-            <marker date="1512209784085" expanded="true" signature="8521:8541" ph="DELETE FROM " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1405,10 +1322,78 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/igor/z/validators/FileValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/igor/z/models/PackageUploaderModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/igor/z/modelAttributes/FeedItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="e#730#731#0" expanded="true" />
+            <element signature="e#763#764#0" expanded="true" />
+            <element signature="e#921#922#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/igor/z/utils/NuGetCommandsWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="125" column="52" lean-forward="false" selection-start-line="125" selection-start-column="52" selection-end-line="125" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/igor/z/controllers/PackageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="72" column="32" lean-forward="true" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/igor/z/daos/JdbcPackageDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="22" column="66" lean-forward="false" selection-start-line="22" selection-start-column="62" selection-end-line="22" selection-end-column="66" />
+          <folding>
+            <marker date="1512209784085" expanded="true" signature="676:1063" ph="insert into packages... " />
+            <marker date="1512209784085" expanded="true" signature="3987:4014" ph="SELECT * FRO... packages" />
+            <marker date="1512209784085" expanded="true" signature="3987:4015" ph="SELECT * FRO... packages" />
+            <marker date="1512209784085" expanded="true" signature="3987:4022" ph="SELECT * FRO... packages" />
+            <marker date="1512209784085" expanded="true" signature="3987:4023" ph="SELECT * FRO... packages" />
+            <marker date="1512209784085" expanded="true" signature="3987:4024" ph="SELECT * FRO... packages" />
+            <marker date="1512209784085" expanded="true" signature="3987:4030" ph="SELECT * FRO... packages" />
+            <marker date="1512209784085" expanded="true" signature="4067:4390" ph="SELECT * FRO... packages" />
+            <marker date="1512209784085" expanded="true" signature="5297:5319" ph="SELECT * FRO... packages" />
+            <marker date="1512209784085" expanded="true" signature="6106:6143" ph="SELECT * FRO... packages" />
+            <marker date="1512209784085" expanded="true" signature="7155:7198" ph="SELECT * FRO... packages" />
+            <marker date="1512209784085" expanded="true" signature="7155:7213" ph="SELECT * FRO... packages" />
+            <marker date="1512209784085" expanded="true" signature="7155:7214" ph="SELECT * FRO... packages" />
+            <marker date="1512209784085" expanded="true" signature="7250:7588" ph="SELECT * FRO... packages" />
+            <marker date="1512209784085" expanded="true" signature="8521:8541" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/igor/z/nugetImplementations/ServerNuget.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+        <state relative-caret-position="13">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding>
             <element signature="method#remoteFeedIsAvailable#0;class#ServerNuget#0" expanded="false" />
             <element signature="method#getStreamWithPackagesInfo#0;class#ServerNuget#0" expanded="false" />
