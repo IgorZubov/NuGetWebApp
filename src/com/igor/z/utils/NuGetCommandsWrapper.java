@@ -45,8 +45,7 @@ public class NuGetCommandsWrapper implements INuGetCommandsWrapper {
                 _nugetExecutablePath,
                 _feedCommands, _add, _name, feed.getFeedName(),
                 _source, feed.getFeedSource(), _config, _nugetConfigPath, _forceEnglish);
-        int exitCode = safeExecutingNuGetCommand(returnMessage, pb);
-        return exitCode;
+        return safeExecutingNuGetCommand(returnMessage, pb);
     }
 
     private int safeExecutingNuGetCommand(List<String> returnMessage, ProcessBuilder pb) {
@@ -93,8 +92,7 @@ public class NuGetCommandsWrapper implements INuGetCommandsWrapper {
         ProcessBuilder pb = new ProcessBuilder(
                 _nugetExecutablePath,
                 _feedCommands, _remove, _name, "\""+ feed.getFeedName()+"\"", _config, _nugetConfigPath, _forceEnglish);
-        int exitCode = safeExecutingNuGetCommand(returnMessage, pb);
-        return exitCode;
+        return safeExecutingNuGetCommand(returnMessage, pb);
     }
 
     @Override
@@ -114,8 +112,7 @@ public class NuGetCommandsWrapper implements INuGetCommandsWrapper {
         ProcessBuilder pb = new ProcessBuilder(
                 _nugetExecutablePath,
                 _add, packagePath, _source, selectedFeedSource, _config, _nugetConfigPath, _forceEnglish);
-        int exitCode = safeExecutingNuGetCommand(returnMessage, pb);
-        return exitCode;
+        return safeExecutingNuGetCommand(returnMessage, pb);
     }
 
     @Override
@@ -124,8 +121,7 @@ public class NuGetCommandsWrapper implements INuGetCommandsWrapper {
         ProcessBuilder pb = new ProcessBuilder(
                 _nugetExecutablePath,
                 _push, packagePath, apiKey, _source, feedSource, _forceEnglish);
-        int exitCode = safeExecutingNuGetCommand(returnMessage, pb);
-        return exitCode;
+        return safeExecutingNuGetCommand(returnMessage, pb);
     }
 
     @Override

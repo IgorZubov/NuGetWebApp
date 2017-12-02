@@ -1,7 +1,5 @@
 package com.igor.z.nugetImplementations;
 
-import com.igor.z.utils.NuGetCommandsWrapper;
-
 public class NugetFactory {
     public Nuget getNugetImplementation(NugetImplementation implementation){
         switch (implementation){

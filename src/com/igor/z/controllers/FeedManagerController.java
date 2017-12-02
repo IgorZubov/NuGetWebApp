@@ -53,6 +53,5 @@ public class FeedManagerController {
         FeedItem item = feedManagerModel.getFeedById(id);
         redirectAttributes.addFlashAttribute("feedItem", item);
         return "redirect:/user/sync";
-//        return new ModelAndView("user/sync", "feedItem", item);
     }
 }

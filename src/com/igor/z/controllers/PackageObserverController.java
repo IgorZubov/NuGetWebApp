@@ -31,7 +31,7 @@ public class PackageObserverController {
     @RequestMapping(value = "/user/packageobserver", method = RequestMethod.GET)
     public ModelAndView showForm(Model model, @ModelAttribute("searchExp") SearchExpression searchExp) {
         List<FeedItem> feeds = feedDao.getAll();
-        sourceList = feeds.stream().map(feedItem -> feedItem.getFeedName()).collect(Collectors.toList());
+        sourceList = feeds.stream().map(FeedItem::getFeedName).collect(Collectors.toList());
         model.addAttribute("sourceList", sourceList);
         return new ModelAndView("user/packageobserver", "searchExp", new SearchExpression());
     }

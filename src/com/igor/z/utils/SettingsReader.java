@@ -2,6 +2,7 @@ package com.igor.z.utils;
 
 import com.igor.z.interfaces.ISettingsReader;
 import com.igor.z.nugetImplementations.NugetImplementation;
+import com.igor.z.springutils.DomReader;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.w3c.dom.Document;
@@ -9,8 +10,6 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,18 +21,13 @@ public class SettingsReader implements ISettingsReader {
         InputStream content = null;
         try {
             content = resource.getInputStream();
-            Document doc = readDomDocument(content);
-            String path = readPath("execNuGet", doc);
-            return path;
-        } catch (ParserConfigurationException e) {
+            Document doc = DomReader.readDomDocument(content);
+            return readValue("execNuGet", doc);
+        } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        }
-        finally {
+        } finally {
             try {
+                assert content != null;
                 content.close();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -47,17 +41,13 @@ public class SettingsReader implements ISettingsReader {
         InputStream content = null;
         try {
             content = resource.getInputStream();
-            Document doc = readDomDocument(content);
-            String path = readPath("configNuGet", doc);
-            return path;
-        } catch (ParserConfigurationException e) {
+            Document doc = DomReader.readDomDocument(content);
+            return readValue("configNuGet", doc);
+        } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        }finally {
+        } finally {
             try {
+                assert content != null;
                 content.close();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -71,16 +61,11 @@ public class SettingsReader implements ISettingsReader {
         InputStream content = null;
         try {
             content = resource.getInputStream();
-            Document doc = readDomDocument(content);
-            String path = readPath("uploadTmpFolder", doc);
-            return path;
-        } catch (ParserConfigurationException e) {
+            Document doc = DomReader.readDomDocument(content);
+            return readValue("uploadTmpFolder", doc);
+        } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        }finally {
+        } finally {
             try {
                 if (content != null)
                     content.close();
@@ -97,16 +82,10 @@ public class SettingsReader implements ISettingsReader {
         InputStream content = null;
         try {
             content = resource.getInputStream();
-            Document doc = readDomDocument(content);
-            String path = readPath("nuGetImpl", doc);
+            Document doc = DomReader.readDomDocument(content);
+            String path = readValue("nuGetImpl", doc);
             return NugetImplementation.valueOf(path);
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IllegalArgumentException e){
+        } catch (ParserConfigurationException | IllegalArgumentException | SAXException | IOException e) {
             e.printStackTrace();
         } finally {
             try {
@@ -119,18 +98,9 @@ public class SettingsReader implements ISettingsReader {
         return NugetImplementation.EMPTY_NUGET;
     }
 
-    private String readPath(String nodeName, Document doc) {
+    private String readValue(String nodeName, Document doc) {
         NodeList nList = doc.getElementsByTagName(nodeName);
         Node nNode = nList.item(0);
         return nNode.getAttributes().getNamedItem("path").getTextContent();
-    }
-
-    private Document readDomDocument(InputStream content) throws ParserConfigurationException, IOException,
-            SAXException {
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-        Document doc = dBuilder.parse(content);
-        doc.getDocumentElement().normalize();
-        return doc;
     }
 }

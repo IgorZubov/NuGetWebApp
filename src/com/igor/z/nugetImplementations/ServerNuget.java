@@ -120,8 +120,6 @@ public class ServerNuget implements Nuget {
             return  con.getResponseCode() == 200;
         } catch (MalformedURLException e) {
             e.printStackTrace();
-        } catch (ProtocolException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -136,8 +134,6 @@ public class ServerNuget implements Nuget {
             con.setRequestProperty("User-Agent", USER_AGENT);
             return con.getInputStream();
         } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (ProtocolException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();

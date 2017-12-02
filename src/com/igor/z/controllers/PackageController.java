@@ -46,7 +46,7 @@ public class PackageController {
     @RequestMapping(value = "/user/addPackage", method = RequestMethod.GET)
     public ModelAndView showForm(@ModelAttribute("packageItem") PackageItem packageItem, Model model) {
         feedList = feedDao.getAll();
-        sourceList = feedList.stream().map(feedItem -> feedItem.getFeedName()).collect(Collectors.toList());
+        sourceList = feedList.stream().map(FeedItem::getFeedName).collect(Collectors.toList());
         model.addAttribute("sourceList", sourceList);
         return new ModelAndView("user/package", "packageItem", new PackageItem());
     }

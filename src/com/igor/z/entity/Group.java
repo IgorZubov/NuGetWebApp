@@ -13,7 +13,7 @@ public class Group implements Serializable {
     public static final String USERS_GROUP = "users";
 
     @Id
-    @Column(name="email", nullable=false, length=255)
+    @Column(name="email", nullable=false)
     private String email;
 
     @Column(name="groupname", nullable=false, length=32)

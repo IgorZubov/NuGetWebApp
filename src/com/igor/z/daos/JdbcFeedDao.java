@@ -23,7 +23,7 @@ public class JdbcFeedDao implements FeedDao{
         String query = "insert into feeds (feedname, feedsource, apikey) values (?,?,?)";
         Connection con = null;
         PreparedStatement ps = null;
-        Exception error = null;
+        Exception error;
         try{
             con = dataSource.getConnection();
             ps = con.prepareStatement(query);
@@ -123,7 +123,7 @@ public class JdbcFeedDao implements FeedDao{
         String query = "delete from feeds where id=?";
         Connection con = null;
         PreparedStatement ps = null;
-        Exception error = null;
+        Exception error;
         try{
             con = dataSource.getConnection();
             ps = con.prepareStatement(query);

@@ -50,11 +50,9 @@ public class PackageInfoReader {
     public List<NuGetPackageInfo> readStreamFromServer(InputStream stream) {
         List<NuGetPackageInfo> result = new ArrayList<>();
         try {
-            Document doc = readDomDocument(stream);
+            Document doc = DomReader.readDomDocument(stream);
             result = readPackages(doc);
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ParserConfigurationException | IOException e) {
             e.printStackTrace();
         } catch (SAXException e) {
             e.printStackTrace();
@@ -69,7 +67,7 @@ public class PackageInfoReader {
             Node node = nList.item(counter);
             if (node.getNodeType() != Node.ELEMENT_NODE)
                 continue;
-            if (node.getNodeName() == "entry"){
+            if (node.getNodeName().equals("entry")){
                 NuGetPackageInfo info = readEntry(node);
                 if (info != null)
                     result.add(info);
@@ -84,7 +82,7 @@ public class PackageInfoReader {
             Node node = nList.item(counter);
             if (node.getNodeType() != Node.ELEMENT_NODE)
                 continue;
-            if (node.getNodeName() == "m:properties")
+            if (node.getNodeName().equals("m:properties"))
                 return readNodes(node);
         }
         return null;
@@ -94,12 +92,10 @@ public class PackageInfoReader {
         NuGetPackageInfo info = null;
         if (content != null){
             try {
-                Document doc = readDomDocument(content);
+                Document doc = DomReader.readDomDocument(content);
                 Node root = doc.getElementsByTagName("metadata").item(0);
                 info = readNodes(root);
-            } catch (ParserConfigurationException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
+            } catch (ParserConfigurationException | IOException e) {
                 e.printStackTrace();
             } catch (SAXException e) {
                 e.printStackTrace();
@@ -110,7 +106,6 @@ public class PackageInfoReader {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                return info;
             }
         }
         return info;
@@ -208,14 +203,5 @@ public class PackageInfoReader {
             }
         }
         return result;
-    }
-
-    private Document readDomDocument(InputStream content) throws ParserConfigurationException, IOException,
-            SAXException {
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-        Document doc = dBuilder.parse(content);
-        doc.getDocumentElement().normalize();
-        return doc;
     }
 }

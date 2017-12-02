@@ -53,17 +53,15 @@ public class JdbcPackageDao implements PackageDao {
             ps.setString(21, feed);
             int out = ps.executeUpdate();
             if(out !=0){
-                StringBuilder builder = new StringBuilder();
-                builder.append("Package ").append(packageInfo.getId())
-                        .append(" with version ").append(packageInfo.getVersion())
-                        .append(" added successfully!");
-                return builder.toString();
+                String builder = "Package " + packageInfo.getId() +
+                        " with version " + packageInfo.getVersion() +
+                        " added successfully!";
+                return builder;
             } else {
-                StringBuilder builder = new StringBuilder();
-                builder.append("Package ").append(packageInfo.getId())
-                        .append(" with version ").append(packageInfo.getVersion())
-                        .append(" addition failed!");
-                return builder.toString();
+                String builder = "Package " + packageInfo.getId() +
+                        " with version " + packageInfo.getVersion() +
+                        " addition failed!";
+                return builder;
             }
         }catch(SQLException e){
             e.printStackTrace();
@@ -75,11 +73,10 @@ public class JdbcPackageDao implements PackageDao {
                 e.printStackTrace();
             }
         }
-        StringBuilder builder = new StringBuilder();
-        builder.append("Package ").append(packageInfo.getId())
-                .append(" with version ").append(packageInfo.getVersion())
-                .append(" addition failed!");
-        return builder.toString();
+        String builder = "Package " + packageInfo.getId() +
+                " with version " + packageInfo.getVersion() +
+                " addition failed!";
+        return builder;
     }
 
     @Override

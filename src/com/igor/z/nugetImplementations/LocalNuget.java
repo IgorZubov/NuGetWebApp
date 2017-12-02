@@ -38,7 +38,7 @@ public class LocalNuget implements Nuget {
             }
             return feedDao.insert(feedItem);
         } else {
-            result.stream().forEach(line -> builder.append(line).append(" "));
+            result.forEach(line -> builder.append(line).append(" "));
         }
         return "Smth went wrong!";
     }
@@ -86,7 +86,7 @@ public class LocalNuget implements Nuget {
         List<String> result = new ArrayList<>();
         List<FeedItem> feeds = new ArrayList<>();
         wrapper.getFeedList(feeds, result);
-        FeedItem realFeed = feeds.stream().filter(f -> f.getFeedName().equals(feed)).findAny().orElse(null);
+        FeedItem realFeed = feeds.stream().filter(f -> f.getFeedName().equals(feed.getFeedName())).findAny().orElse(null);
         if (realFeed != null){
             if ( wrapper.addPackageToFeed(packagePath, realFeed.getFeedSource(), result) == 0){
                 PackageInfoReader reader = new PackageInfoReader();
